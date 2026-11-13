@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS3 Science Masterclass</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fredoka', 'sans-serif'],
+                        heading: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #8b5cf6; /* violet-500 */
+            --primary-dark: #6d28d9; /* violet-700 */
+        }
+        body {
+            background-color: #f5f3ff; /* violet-50 */
+            color: #334155; 
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes streakPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(10deg); filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6)); }
+            100% { transform: scale(1) rotate(0); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-2deg); }
+            50% { transform: translateX(5px) rotate(2deg); }
+            75% { transform: translateX(-5px) rotate(-2deg); }
+        }
+        @keyframes lockInZoom {
+            0% { transform: scale(0.5); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        .animate-shake { animation: shake 0.4s ease-in-out; }
+        .animate-streak-pop { animation: streakPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .animate-lock-in { animation: lockInZoom 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        
+        .streak-glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+            border-color: rgba(139, 92, 246, 0.8);
+        }
+
+        /* Hide Scrollbar but keep functionality */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .tab-btn { transition: all 0.3s ease; }
+        .tab-btn.active {
+            border-bottom-width: 4px;
+            border-color: var(--primary);
+            color: var(--primary-dark);
+            background-color: #ede9fe; /* violet-100 */
+        }
+        
+        .activity-content { display: none; }
+        .activity-content.active { display: block; }
+
+        .splash-bg {
+            background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
+            background-image: radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                              radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen overflow-hidden" id="main-body">
+
+    <!-- LOCKED IN OVERLAY -->
+    <div id="locked-in-overlay" class="fixed inset-0 bg-slate-900/95 z-[100] hidden items-center justify-center flex-col text-center backdrop-blur-md">
+        <div id="locked-in-content" class="scale-0 opacity-0 transition-all duration-500">
+            <i class="ph-duotone ph-rocket-launch text-[10rem] text-violet-400 mb-4 drop-shadow-[0_0_30px_rgba(139,92,246,0.8)]"></i>
+            <h1 class="font-heading text-5xl md:text-7xl text-white tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">LOCKED IN!</h1>
+            <p class="text-violet-400 mt-4 text-xl md:text-2xl font-bold tracking-widest uppercase">Science Mastery Achieved</p>
+        </div>
+    </div>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen" class="fixed inset-0 z-50 splash-bg flex flex-col items-center justify-center transition-opacity duration-700 p-4 overflow-y-auto">
+        <div class="text-center flex flex-col items-center w-full max-w-4xl py-10">
+            <div class="flex gap-4 mb-4">
+                <div class="bg-blue-100 p-4 rounded-2xl shadow-sm transform -rotate-12"><i class="ph-duotone ph-drop text-5xl text-blue-500"></i></div>
+                <div class="bg-violet-100 p-4 rounded-2xl shadow-sm transform rotate-12"><i class="ph-duotone ph-planet text-5xl text-violet-500"></i></div>
+            </div>
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-slate-800 tracking-tight mb-2 leading-tight drop-shadow-sm">
+                KS3 Science <span class="text-violet-600">Masterclass</span>
+            </h1>
+            <p class="text-violet-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-10 bg-violet-200/50 px-4 py-1.5 rounded-full border border-violet-300 shadow-sm">Created by Mr Reeve | Interactive Revision Environment</p>
+            
+            <div class="w-full text-left px-2 max-w-3xl mx-auto space-y-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4"><i class="ph-bold ph-atom text-blue-500 text-xl"></i> <h2 class="text-lg sm:text-xl font-bold text-slate-700 border-b-2 border-blue-200 flex-grow pb-1">Core Units</h2></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button onclick="openUnit('u1')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
+                            <div class="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors"><i class="ph-duotone ph-snowman text-4xl text-blue-500"></i></div>
+                            <div>
+                                <h3 class="font-heading font-bold text-slate-800 text-xl">States of Matter</h3>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Particles, state changes, diffusion & density.</p>
+                            </div>
+                        </button>
+                        <button onclick="openUnit('u2')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
+                            <div class="bg-violet-50 p-4 rounded-xl group-hover:bg-violet-100 transition-colors"><i class="ph-duotone ph-rocket-launch text-4xl text-violet-500"></i></div>
+                            <div>
+                                <h3 class="font-heading font-bold text-slate-800 text-xl">Forces & Space</h3>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Gravity, friction, speed, orbits & seasons.</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex items-center gap-2 mb-4"><i class="ph-bold ph-ruler text-amber-500 text-xl"></i> <h2 class="text-lg sm:text-xl font-bold text-slate-700 border-b-2 border-amber-200 flex-grow pb-1">Skills</h2></div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <button onclick="openUnit('maths')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group w-full sm:w-1/2 mx-auto">
+                            <div class="bg-amber-50 p-4 rounded-xl group-hover:bg-amber-100 transition-colors"><i class="ph-duotone ph-calculator text-4xl text-amber-500"></i></div>
+                            <div>
+                                <h3 class="font-heading font-bold text-slate-800 text-xl">Working Scientifically</h3>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Equations, averages & unit conversions.</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-slate-200 w-full flex justify-center">
+                    <button onclick="handleOverallReportClick()" class="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest py-4 px-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-1 text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                        <i class="ph-bold ph-printer text-2xl"></i> Generate Score Card For All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER & NAV -->
+    <header class="bg-white shadow-sm z-10 sticky top-0 border-b border-slate-200 hidden" id="app-header">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <button onclick="returnToMenu()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors shrink-0 flex items-center gap-2 font-bold shadow-sm border border-slate-200">
+                    <i class="ph-bold ph-house text-xl"></i> <span class="hidden sm:inline">Home</span>
+                </button>
+                <div id="header-icon-container" class="bg-violet-100 p-2 rounded-lg shrink-0"><i id="header-icon" class="ph-bold ph-planet text-2xl text-violet-600"></i></div>
+                <div class="truncate">
+                    <h1 id="header-unit-title" class="font-heading text-xl font-bold text-slate-800 leading-none truncate">Unit Title</h1>
+                    <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider truncate">KS3 Science Masterclass</p>
+                </div>
+            </div>
+            
+            <!-- Dynamic Streak Counter -->
+            <div id="streak-banner" class="bg-slate-100 text-slate-700 font-bold px-4 py-1.5 rounded-full border border-slate-200 shadow-sm flex items-center gap-2 shrink-0 transition-all duration-300">
+                <span id="streak-emoji" class="text-2xl -my-2 drop-shadow-sm transition-transform duration-300">🔥</span>
+                <span class="text-sm tracking-wide uppercase font-semibold text-slate-500">Streak:</span>
+                <span id="streak-counter" class="text-xl font-black text-violet-600">0</span>
+            </div>
+        </div>
+        
+        <!-- Horizontal Scrollable Activity Tabs -->
+        <div class="flex overflow-x-auto bg-white scrollbar-hide border-t border-slate-100 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.02)]">
+            <div class="max-w-7xl mx-auto w-full flex px-2" id="activity-tabs">
+                <!-- Tabs generated dynamically by JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 pb-32 hidden relative" id="main-content">
+        
+        <!-- 1. Mix & Match -->
+        <div id="tab-match" class="activity-content animate-fade-in">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500"></i> Terminology Match <span class="text-sm font-bold text-violet-600 bg-violet-50 px-2 py-1 rounded border border-violet-200 ml-2">Round <span id="match-batch-label">1</span> of 2</span></h3>
+                        <p class="text-slate-500 text-sm mt-1">Tap a keyword, then tap its correct definition.</p>
+                    </div>
+                    <span class="text-sm font-bold bg-violet-100 text-violet-700 px-4 py-2 rounded-full shrink-0 flex items-center gap-2">
+                        <span><span id="match-score">0</span> / <span id="match-total">16</span> Matched</span>
+                        <button onclick="resetMatch()" class="bg-violet-200 hover:bg-violet-300 p-1.5 rounded-md transition-colors shadow-sm ml-2" title="Reset"><i class="ph-bold ph-arrows-clockwise text-violet-800"></i></button>
+                    </span>
+                </div>
+                <div id="match-complete" class="hidden bg-violet-50 border-2 border-violet-500 text-violet-700 p-8 rounded-xl text-center mb-6 shadow-sm">
+                    <i class="ph-fill ph-check-circle text-5xl mb-2"></i>
+                    <h4 class="font-heading text-2xl font-bold">Brilliant!</h4>
+                    <p class="font-medium">You know your science vocabulary inside out.</p>
+                </div>
+                <div id="match-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3" id="match-questions"></div>
+                    <div class="space-y-3" id="match-answers"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MCQ Engine -->
+        <div id="tab-mcq" class="activity-content animate-fade-in">
+            <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-700 text-white max-w-3xl mx-auto">
+                <div class="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-700 pb-4">
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold flex items-center gap-2"><i class="ph-fill ph-question text-blue-400"></i> Quick Quiz</h3>
+                        <p class="text-slate-400 text-sm mt-1" id="mcq-subtitle">Incorrect answers will loop back at the end.</p>
+                    </div>
+                    <div class="text-left sm:text-right shrink-0">
+                        <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Progress</div>
+                        <div class="text-3xl font-black text-blue-400 mt-1" id="mcq-progress">0 / 0</div>
+                    </div>
+                </div>
+                
+                <div id="mcq-complete" class="hidden text-center py-10">
+                    <i class="ph-duotone ph-trophy text-7xl text-amber-400 mb-4 animate-bounce"></i>
+                    <h4 class="font-heading text-3xl font-bold text-white mb-2">100% Correct</h4>
+                    <p class="text-slate-300">Great job completing the quiz.</p>
+                </div>
+                
+                <!-- RETRY SCREEN -->
+                <div id="mcq-retry-screen" class="hidden text-center py-10">
+                    <i class="ph-duotone ph-arrow-counter-clockwise text-7xl text-amber-400 mb-4"></i>
+                    <h4 class="font-heading text-3xl font-bold text-white mb-2">Try Again</h4>
+                    <p class="text-slate-300 mb-6">You have <span id="mcq-retry-count" class="font-bold text-white text-xl">0</span> questions to review.</p>
+                    <button onclick="startMCQRetry()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-colors inline-flex items-center gap-2">
+                        <i class="ph-bold ph-arrows-clockwise text-xl"></i> Retry Questions
+                    </button>
+                </div>
+                
+                <div id="mcq-container">
+                    <h4 class="text-lg sm:text-xl font-medium mb-8 leading-relaxed text-slate-100" id="mcq-question">Loading...</h4>
+                    <div class="space-y-4" id="mcq-options"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Long Answers -->
+        <div id="tab-long" class="activity-content animate-fade-in">
+            <div class="mb-6 border-b border-slate-200 pb-4">
+                <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500"></i> Extended Answers</h3>
+                <p class="text-slate-500 text-sm mt-1">Type your answer, then check it against the model answer and give yourself a score out of 6.</p>
+            </div>
+            <div id="long-list" class="space-y-8"></div>
+        </div>
+
+        <!-- 4. Maths Skills -->
+        <div id="tab-maths" class="activity-content animate-fade-in">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 max-w-4xl mx-auto">
+                <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                    <div>
+                        <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500"></i> Working Scientifically</h3>
+                        <p class="text-slate-500 text-sm mt-1">Calculate the answers. Type numbers only.</p>
+                    </div>
+                    <div class="text-3xl font-black text-blue-600 bg-blue-50 px-5 py-2 rounded-xl border border-blue-200 shrink-0"><span id="maths-score">0</span> / 15</div>
+                </div>
+                <div id="maths-list" class="space-y-6"></div>
+            </div>
+        </div>
+
+        <!-- 5. Dashboard / Report Gen -->
+        <div id="tab-report" class="activity-content animate-fade-in">
+            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                    <i id="dash-bg-icon" class="ph-fill ph-medal text-[15rem]"></i>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-slate-100 pb-8 relative z-10">
+                    <div class="text-center md:text-left">
+                        <h3 class="font-heading text-3xl font-bold text-slate-800 mb-2">Your Progress</h3>
+                        <div class="text-6xl font-black text-violet-600" id="dash-percentage">0%</div>
+                        <p class="text-slate-500 font-medium mt-2 max-w-sm" id="dash-feedback">Complete activities to increase your score.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 relative z-10" id="dash-standard-stats">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500 text-lg"></i> Terminology</div>
+                        <div class="mt-3 flex items-end justify-between">
+                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-match">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-match">/ 16</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-question text-blue-500 text-lg"></i> Quiz</div>
+                        <div class="mt-3 flex items-end justify-between">
+                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-mcq">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-mcq">/ 20</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between sm:col-span-2">
+                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500 text-lg"></i> Extended Answers</div>
+                        <div class="mt-3 flex items-end justify-between">
+                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-long">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-long">/ 9</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4 mb-10 relative z-10 hidden" id="dash-maths-stats">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500 text-lg"></i> Calculations Completed</div>
+                        <div class="mt-3 flex items-end justify-between">
+                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-maths">0</span> <span class="text-xl text-slate-400 font-medium">/ 15</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="handleReportClick()" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold uppercase tracking-widest py-4 rounded-xl shadow-lg transition-transform transform hover:-translate-y-1 text-lg flex justify-center items-center gap-3 relative z-10">
+                    <i class="ph-bold ph-printer text-2xl"></i> Generate Scorecard
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-message" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-full shadow-lg z-[70] flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <i id="toast-icon" class="ph-fill ph-info text-xl"></i>
+        <span id="toast-text" class="font-medium">Message</span>
+    </div>
+
+    <!-- NAME ENTRY MODAL -->
+    <div id="name-modal" class="fixed inset-0 bg-slate-900/60 z-[60] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl max-w-sm w-full shadow-2xl relative border-t-8 border-violet-600 animate-fade-in">
+            <h2 class="font-heading text-2xl font-bold text-slate-800 mb-2">Who are you?</h2>
+            <p class="text-slate-500 font-medium mb-6 text-sm">Enter your name to generate your official scorecard.</p>
+            <input type="text" id="student-name-input" class="w-full p-3 border-2 rounded-xl outline-none transition-colors border-slate-300 focus:border-violet-500 mb-6 bg-slate-50 font-medium text-slate-800" placeholder="First Name / Last Name">
+            <div class="flex justify-end gap-3">
+                <button onclick="closeNameModal()" class="px-5 py-2.5 text-slate-500 hover:bg-slate-100 rounded-xl transition-colors font-medium">Cancel</button>
+                <button onclick="saveNameAndShowScorecard()" class="px-5 py-2.5 bg-violet-600 hover:bg-violet-700 text-white rounded-xl transition-colors font-bold shadow-md flex items-center gap-2">Generate <i class="ph-bold ph-check"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCORECARD MODAL -->
+    <div id="scorecard-modal" class="fixed inset-0 bg-slate-900/80 z-[60] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl max-w-md w-full shadow-2xl relative border-t-8 border-violet-500 max-h-[95vh] overflow-y-auto animate-fade-in">
+            <button onclick="closeScorecard()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
+                <i class="ph-fill ph-x-circle text-3xl"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <i class="ph-bold ph-certificate text-3xl text-violet-600"></i>
+                </div>
+                <h2 class="font-heading text-2xl font-bold text-slate-800">Unit Scorecard</h2>
+                <p class="text-slate-500 font-semibold mt-1 uppercase tracking-wider text-xs">KS3 Science Masterclass</p>
+            </div>
+            
+            <div class="space-y-4 mb-8 text-sm sm:text-base bg-slate-50 p-5 rounded-xl border border-slate-200">
+                <div class="flex justify-between border-b border-slate-200 pb-3">
+                    <span class="text-slate-500 font-bold uppercase tracking-wider text-xs flex items-center gap-2"><i class="ph-fill ph-user text-lg"></i> Student</span>
+                    <span class="font-bold text-slate-800" id="sc-name"></span>
+                </div>
+                <div class="flex justify-between border-b border-slate-200 py-3">
+                    <span class="text-slate-500 font-bold uppercase tracking-wider text-xs flex items-center gap-2"><i class="ph-fill ph-book-open text-lg"></i> Unit</span>
+                    <span class="font-bold text-slate-800" id="sc-unit"></span>
+                </div>
+                
+                <div id="sc-standard-stats">
+                    <div class="flex justify-between py-2">
+                        <span class="text-slate-600 font-medium">Terminology Match</span>
+                        <span class="font-bold text-slate-800"><span id="sc-match">0</span> <span class="text-slate-400" id="sc-total-match-display">/ 16</span></span>
+                    </div>
+                    <div class="flex justify-between py-2 border-b border-slate-200 pb-3">
+                        <span class="text-slate-600 font-medium">Quick Quiz</span>
+                        <span class="font-bold text-slate-800"><span id="sc-mcq">0</span> <span class="text-slate-400">/ <span id="sc-total-mcq">20</span></span></span>
+                    </div>
+                    <div class="flex justify-between pt-3">
+                        <span class="text-slate-600 font-medium">Extended Answers</span>
+                        <span class="font-bold text-slate-800"><span id="sc-long">0</span> <span class="text-slate-400">/ <span id="sc-total-long">9</span></span></span>
+                    </div>
+                </div>
+
+                <div id="sc-maths-stats" class="hidden">
+                    <div class="flex justify-between py-2">
+                        <span class="text-slate-600 font-medium">Calculations</span>
+                        <span class="font-bold text-slate-800"><span id="sc-maths">0</span> <span class="text-slate-400" id="sc-total-maths-display">/ 15</span></span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between pt-6 mt-2 border-t-2 border-slate-200 text-lg items-center">
+                    <span class="font-heading font-bold text-slate-800">Total Marks:</span>
+                    <div class="text-right">
+                        <div class="font-black text-violet-600 text-2xl"><span id="sc-total">0</span> <span class="text-lg text-slate-400">/ <span id="sc-max">0</span></span></div>
+                        <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mt-1"><span id="sc-percent">0</span>%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-xs text-slate-400 font-medium">
+                <p>Generated by KS3 Masterclass Framework</p>
+                <p class="mt-1" id="sc-timestamp"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION LOGIC & DATA -->
+    <script>
+        const APP_DATA = {
+            u1: { 
+                id: 'u1', title: "States of Matter", icon: "ph-snowman", emoji: "⛄", type: "standard",
+                match: [
+                    {q:"Solid", a:"Particles are closely packed in a regular arrangement and vibrate in fixed positions."},
+                    {q:"Liquid", a:"Particles are close together but randomly arranged, able to move around each other."},
+                    {q:"Gas", a:"Particles are far apart, moving rapidly in all directions randomly."},
+                    {q:"Melting", a:"The process where a solid turns into a liquid when heated."},
+                    {q:"Freezing", a:"The process where a liquid turns into a solid when cooled."},
+                    {q:"Boiling", a:"When a liquid turns into a gas throughout the liquid at a specific temperature."},
+                    {q:"Evaporation", a:"When a liquid slowly turns into a gas only at the surface, at any temperature."},
+                    {q:"Condensation", a:"The process where a gas turns into a liquid when cooled."},
+                    {q:"Sublimation", a:"When a solid turns directly into a gas without becoming a liquid first."},
+                    {q:"Diffusion", a:"The spreading out of particles from an area of high concentration to an area of low concentration."},
+                    {q:"Density", a:"The mass of a substance per unit volume (how tightly packed the particles are)."},
+                    {q:"Gas Pressure", a:"The force created when gas particles collide with the walls of their container."},
+                    {q:"Brownian Motion", a:"The random, zigzag movement of particles suspended in a fluid (like dust in air)."},
+                    {q:"Conservation of Mass", a:"When a substance changes state, its mass stays exactly the same because the number of particles doesn't change."},
+                    {q:"Expansion", a:"When a substance is heated, its particles move faster and push further apart, increasing the volume."},
+                    {q:"Contraction", a:"When a substance is cooled, its particles move slower and get closer together, decreasing the volume."}
+                ],
+                mcq: [
+                    { q: "Which state of matter cannot be compressed (squashed)?", options: ["Solid", "Gas", "Both liquid and gas", "Air"], ans: 0 },
+                    { q: "What happens to the particles in an ice cube when it melts?", options: ["They gain energy and break away from their fixed arrangement to move past each other", "They lose energy and stop moving entirely", "They turn into a gas and float away", "The particles themselves get bigger"], ans: 0 },
+                    { q: "Why is a gas easy to compress?", options: ["Because there are large empty spaces between the particles", "Because the particles are very small", "Because gas particles are soft", "Because gas particles have no mass"], ans: 0 },
+                    { q: "Which process describes the smell of baking bread spreading through a house?", options: ["Diffusion", "Evaporation", "Condensation", "Sublimation"], ans: 0 },
+                    { q: "Why does diffusion happen faster in a warm room than a cold room?", options: ["The particles have more heat energy so they move faster", "The particles get lighter when they are warm", "The air pressure pushes them harder", "Cold rooms have thicker air"], ans: 0 },
+                    { q: "What causes gas pressure inside a balloon?", options: ["Gas particles constantly colliding with the inside surface of the balloon", "The air outside pushing on the balloon", "Gravity pulling the gas down", "The balloon shrinking"], ans: 0 },
+                    { q: "If you heat a gas inside a sealed metal can, what happens to the pressure?", options: ["The pressure increases because particles hit the walls harder and more often", "The pressure decreases because the gas expands", "The pressure stays the same", "The can melts immediately"], ans: 0 },
+                    { q: "What is density?", options: ["The mass of a certain volume of a substance", "How heavy something is", "The volume of a certain mass", "How much space something takes up"], ans: 0 },
+                    { q: "Which state of matter usually has the highest density?", options: ["Solid", "Liquid", "Gas", "Plasma"], ans: 0 },
+                    { q: "How do you calculate density?", options: ["Density = Mass ÷ Volume", "Density = Volume ÷ Mass", "Density = Mass × Volume", "Density = Weight × Volume"], ans: 0 },
+                    { q: "What happens to the mass of a puddle of water when it evaporates?", options: ["The mass stays the same, it just moves into the air as a gas", "The mass disappears completely", "The mass increases", "The mass halves"], ans: 0 },
+                    { q: "What is Sublimation?", options: ["A solid turning directly into a gas (e.g. dry ice)", "A gas turning into a liquid", "A liquid turning into a solid", "A solid dissolving in water"], ans: 0 },
+                    { q: "Why do railway tracks have small gaps left between them?", options: ["To allow the metal to expand in hot weather without buckling", "To save metal when building", "To let water drain through", "To make a clicking sound for safety"], ans: 0 },
+                    { q: "What is the boiling point of pure water?", options: ["100°C", "0°C", "50°C", "212°C"], ans: 0 },
+                    { q: "What is Brownian motion?", options: ["The random movement of visible particles caused by invisible fluid particles colliding with them", "The way liquids flow downhill", "The expanding of metals", "The way ice melts"], ans: 0 },
+                    { q: "Which arrangement best describes a liquid?", options: ["Particles are touching but randomly arranged and can move", "Particles are far apart and move quickly", "Particles are in neat rows and vibrate", "Particles are separated by a membrane"], ans: 0 },
+                    { q: "Why does a mirror fog up when you take a hot shower?", options: ["Water vapor in the air hits the cold mirror, cools down, and condenses into liquid drops", "The mirror absorbs the heat", "The water evaporates off the mirror", "The hot water splashes onto the mirror"], ans: 0 },
+                    { q: "What is the difference between boiling and evaporation?", options: ["Evaporation happens at any temperature at the surface; boiling happens at a specific temperature throughout the liquid", "They are exactly the same thing", "Boiling is only for water, evaporation is for all liquids", "Evaporation is faster than boiling"], ans: 0 },
+                    { q: "When a liquid freezes to become a solid, what happens to the energy of the particles?", options: ["They lose energy to the surroundings", "They gain energy from the surroundings", "Their energy stays the same", "They destroy their energy"], ans: 0 },
+                    { q: "If you have 100g of ice and melt it, what will be the mass of the liquid water?", options: ["Exactly 100g (Conservation of Mass)", "Less than 100g because it shrinks", "More than 100g because it spreads out", "0g"] }
+                ],
+                long: [
+                    { q: "Describe the arrangement and movement of particles in a solid, a liquid, and a gas. (3 marks)", model: "1. Solids have closely packed particles in a regular pattern that vibrate.\n2. Liquids have particles that touch but can slide past each other.\n3. Gases have particles far apart moving rapidly in all directions.", maxMarks: 3 },
+                    { q: "Explain how a gas exerts pressure on its container and why heating it increases the pressure. (3 marks)", model: "1. Gas particles collide with the walls of the container, exerting a force.\n2. Heating the gas gives particles more kinetic energy so they move faster.\n3. This causes more frequent and forceful collisions, increasing pressure.", maxMarks: 3 },
+                    { q: "Describe how to find the density of an irregular stone. (3 marks)", model: "1. Measure the mass of the stone using a digital balance.\n2. Submerge the stone in a Eureka can and measure the volume of displaced water.\n3. Calculate density by dividing the mass by the volume.", maxMarks: 3 }
+        ]
+    },
+    u2: { 
+        id: 'u2', title: "Forces & Space", icon: "ph-rocket-launch", emoji: "🪐", type: "standard",
+        match: [
+            {q:"Force", a:"A push, pull, or twist that can change the speed, direction, or shape of an object."},
+                    {q:"Newton (N)", a:"The unit used to measure forces."},
+                    {q:"Friction", a:"A contact force that opposes motion when two surfaces rub together, producing heat."},
+                    {q:"Air Resistance", a:"A type of friction caused by air particles colliding with a moving object."},
+                    {q:"Gravity", a:"A non-contact force of attraction between all objects with mass."},
+                    {q:"Mass", a:"The amount of matter in an object, measured in kilograms (kg). It never changes."},
+                    {q:"Weight", a:"The force of gravity acting on an object's mass, measured in Newtons (N). W = m × g."},
+                    {q:"Resultant Force", a:"The single overall force acting on an object when all individual forces are combined."},
+                    {q:"Equilibrium", a:"When the forces on an object are balanced (resultant force is zero), so it stays still or moves at a steady speed."},
+                    {q:"Speed", a:"How fast an object is moving, calculated by: Speed = Distance ÷ Time."},
+                    {q:"Distance-Time Graph", a:"A graph showing how far an object travels over time. A steep line means fast speed."},
+                    {q:"Solar System", a:"The Sun and all the planets, moons, asteroids, and comets that orbit around it."},
+                    {q:"Galaxy", a:"A massive collection of billions of stars held together by gravity (e.g., the Milky Way)."},
+                    {q:"Orbit", a:"The curved path of a celestial object or spacecraft around a star, planet, or moon."},
+                    {q:"Day and Night", a:"Caused by the Earth rotating on its axis once every 24 hours."},
+                    {q:"Seasons", a:"Caused by the Earth being tilted on its axis as it orbits the Sun over 365 days."}
+                ],
+                mcq: [
+                    { q: "What is the difference between mass and weight?", options: ["Mass is the amount of matter (kg); weight is the force of gravity pulling on that mass (N)", "Mass is measured in Newtons; weight is measured in kilograms", "They are exactly the same thing", "Mass changes on the moon, weight stays the same"], ans: 0 },
+                    { q: "Which tool is used to measure a force?", options: ["A Newton meter (spring balance)", "A thermometer", "A measuring cylinder", "A digital balance (scale)"], ans: 0 },
+                    { q: "If a car is moving forward and the driving force equals the friction force, what happens?", options: ["The car travels at a steady, constant speed", "The car stops immediately", "The car accelerates", "The car moves backwards"], ans: 0 },
+                    { q: "A box is pushed right with 10 N and left with 4 N. What is the resultant force?", options: ["6 N to the right", "14 N to the right", "6 N to the left", "0 N"], ans: 0 },
+                    { q: "Why do we experience day and night on Earth?", options: ["Because the Earth rotates (spins) on its axis once every 24 hours", "Because the Sun goes behind the moon", "Because the Earth orbits the sun once a year", "Because the sun turns off at night"], ans: 0 },
+                    { q: "What causes the seasons (Summer, Winter, etc.) on Earth?", options: ["The Earth's axis is tilted as it orbits the sun, changing how direct the sunlight is", "The Earth gets closer to the sun in summer", "The sun gets hotter in summer", "The moon blocks the sun in winter"], ans: 0 },
+                    { q: "What is our galaxy called?", options: ["The Milky Way", "The Solar System", "Andromeda", "Orion"], ans: 0 },
+                    { q: "What force keeps the Earth in orbit around the Sun?", options: ["Gravity", "Magnetism", "Friction", "Air resistance"], ans: 0 },
+                    { q: "How do you calculate speed?", options: ["Speed = Distance ÷ Time", "Speed = Time ÷ Distance", "Speed = Distance × Time", "Speed = Mass × Gravity"], ans: 0 },
+                    { q: "On a distance-time graph, what does a flat, horizontal line mean?", options: ["The object is stationary (stopped)", "The object is moving at a steady speed", "The object is accelerating rapidly", "The object is going backwards"], ans: 0 },
+                    { q: "If an astronaut goes to the Moon, what happens to their mass and weight?", options: ["Their mass stays the same, but their weight decreases because gravity is weaker", "Both mass and weight decrease", "Mass decreases, weight stays the same", "Both stay exactly the same"], ans: 0 },
+                    { q: "Which of the following is a non-contact force?", options: ["Gravity", "Friction", "Air resistance", "Water resistance"], ans: 0 },
+                    { q: "What is 'terminal velocity' for a falling skydiver?", options: ["The steady speed reached when air resistance equals the downward force of weight", "The speed when they open their parachute", "The fastest they can possibly run", "When gravity stops working"], ans: 0 },
+                    { q: "How long does it take for the Earth to complete one full orbit around the Sun?", options: ["365.25 days (1 year)", "24 hours (1 day)", "28 days (1 month)", "10 years"], ans: 0 },
+                    { q: "Why is it colder in the UK during winter?", options: ["The Northern Hemisphere is tilted away from the sun, so the sun's rays are less direct and days are shorter", "The Earth is furthest away from the sun", "The sun produces less heat", "The moon cools the Earth down"], ans: 0 },
+                    { q: "What happens to the air resistance on a car as it drives faster?", options: ["The air resistance increases", "The air resistance decreases", "The air resistance stays the same", "The air resistance turns into gravity"], ans: 0 },
+                    { q: "Which planet is closest to the Sun?", options: ["Mercury", "Venus", "Earth", "Mars"], ans: 0 },
+                    { q: "What is the formula to calculate Weight?", options: ["Weight = Mass × Gravitational field strength (W = m × g)", "Weight = Mass ÷ Gravity", "Weight = Speed × Time", "Weight = Force × Area"], ans: 0 },
+                    { q: "If an unbalanced (resultant) force acts on an object, what will happen?", options: ["The object will change its speed or direction (it will accelerate/decelerate)", "The object will stay completely still", "The object will move at a constant speed", "The object will turn into a gas"], ans: 0 },
+                    { q: "What is a light-year?", options: ["The distance that light travels in one year (used to measure distances in space)", "The time it takes for light to reach the Earth from the Sun", "A year with a lot of sunshine", "The speed of light"] }
+                ],
+                long: [
+                    { q: "Explain the difference between mass and weight, including their units. (3 marks)", model: "1. Mass is the amount of matter in an object, measured in kilograms (kg).\n2. Weight is the force of gravity acting on an object, measured in Newtons (N).\n3. Mass stays the same everywhere, but weight changes depending on the strength of gravity.", maxMarks: 3 },
+                    { q: "Describe the forces acting on a falling skydiver who has reached terminal velocity. (3 marks)", model: "1. Gravity pulls the skydiver downwards with a force called weight.\n2. Air resistance pushes upwards against the skydiver.\n3. At terminal velocity, these two forces are balanced (equal), so the skydiver falls at a steady speed.", maxMarks: 3 },
+                    { q: "Explain why we experience seasons on Earth. (3 marks)", model: "1. The Earth's axis is tilted at an angle as it orbits the Sun.\n2. When a hemisphere is tilted towards the Sun, it receives more direct sunlight and experiences summer.\n3. When tilted away, it receives less direct sunlight and experiences winter.", maxMarks: 3 }
+                ]
+            },
+            maths: {
+                id: 'maths', title: 'Working Scientifically', icon: 'ph-calculator', emoji: '🧮', type: 'maths',
+                questions: [
+                    { q: 'A runner travels 100 metres in 10 seconds. Calculate their speed in m/s.', a: '10', hint: 'Speed = Distance ÷ Time', working: '100 ÷ 10 = 10 m/s' },
+                    { q: 'A car travels at 20 m/s for 30 seconds. How far does it travel in metres?', a: '600', hint: 'Distance = Speed × Time', working: '20 × 30 = 600 m' },
+                    { q: 'A rock has a mass of 5 kg. The gravitational field strength on Earth is 10 N/kg. Calculate its weight in Newtons.', a: '50', hint: 'Weight = Mass × Gravity (W = m × g)', working: '5 × 10 = 50 N' },
+                    { q: 'A metal block has a mass of 120 g and a volume of 30 cm³. Calculate its density in g/cm³.', a: '4', hint: 'Density = Mass ÷ Volume', working: '120 ÷ 30 = 4 g/cm³' },
+                    { q: 'In an experiment, 3 readings were taken: 12, 15, and 18. Calculate the mean (average).', a: '15', hint: 'Add them all up, then divide by how many there are.', working: '(12 + 15 + 18) = 45\n45 ÷ 3 = 15' },
+                    { q: 'A rocket engine provides an upward thrust of 500 N. The rocket has a weight of 300 N. What is the resultant force?', a: '200', hint: 'Subtract the downward force from the upward force.', working: '500 - 300 = 200 N (Upwards)' },
+                    { q: 'Convert 4.5 kilometres into metres.', a: '4500', hint: '1 km = 1000 m. Multiply by 1000.', working: '4.5 × 1000 = 4500 m' },
+                    { q: 'A student measures 250 millilitres (ml) of water. How many litres (L) is this?', a: '0.25', hint: '1 Litre = 1000 ml. Divide by 1000.', working: '250 ÷ 1000 = 0.25 L' },
+                    { q: 'A train travels 150 km in 2 hours. What is its average speed in km/h?', a: '75', hint: 'Speed = Distance ÷ Time', working: '150 ÷ 2 = 75 km/h' },
+                    { q: 'An astronaut has a mass of 80 kg. Gravity on the Moon is 1.6 N/kg. What is their weight on the Moon in Newtons?', a: '128', hint: 'Weight = mass × gravity', working: '80 × 1.6 = 128 N' },
+                    { q: 'A box has a base area of 2 m² and weighs 100 N. Calculate the pressure it exerts on the floor in N/m².', a: '50', hint: 'Pressure = Force ÷ Area', working: '100 ÷ 2 = 50 N/m²' },
+                    { q: 'If a sound wave takes 3 seconds to bounce back (echo) from a cliff, and sound travels at 340 m/s, how far away is the cliff? (Careful: it went there AND back).', a: '510', hint: 'Find total distance (Speed × Time), then halve it because it is an echo.', working: 'Total distance = 340 × 3 = 1020 m\nDistance to cliff = 1020 ÷ 2 = 510 m' },
+                    { q: 'A lever is 2 metres long. You push down with 30 N of force at the end. Calculate the moment of the force in Nm.', a: '60', hint: 'Moment = Force × Distance from pivot', working: '30 × 2 = 60 Nm' },
+                    { q: 'Four students measure the boiling point of water: 100°C, 99°C, 101°C, and 80°C. The 80°C is anomalous. Calculate the mean of the reliable results.', a: '100', hint: 'Ignore the anomalous result (80). Find the mean of the other three.', working: '(100 + 99 + 101) = 300\n300 ÷ 3 = 100°C' },
+                    { q: 'A car starts at 0 m/s and reaches 20 m/s in 5 seconds. What is its acceleration in m/s²?', a: '4', hint: 'Acceleration = Change in speed ÷ Time', working: '(20 - 0) ÷ 5 = 4 m/s²' }
+                ]
+            }
+        };
+
+        const TAB_ORDER = ['u1', 'u2', 'maths'];
+
+        let currentUnitId = null;
+        let currentActivity = null;
+        let currentStreak = 0;
+        let activeDictationId = null;
+        let dictationRecognition = null;
+        let state = {};
+        let reportContext = 'unit';
+
+        function triggerLockedInOverlay() {
+            const overlay = document.getElementById('locked-in-overlay');
+            const content = document.getElementById('locked-in-content');
+            
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            
+            setTimeout(() => {
+                content.classList.remove('scale-0', 'opacity-0');
+                content.classList.add('animate-lock-in');
+            }, 50);
+
+            setTimeout(() => {
+                content.classList.remove('animate-lock-in');
+                content.classList.add('scale-0', 'opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                }, 500); 
+            }, 3000);
+        }
+
+        function initState() {
+            TAB_ORDER.forEach(id => {
+                const unitData = APP_DATA[id];
+                if (unitData.type === 'standard') {
+                    // Randomize MCQs
+                    const randomizedMCQ = shuffleArray([...unitData.mcq]).map(q => {
+                        const correctOptionText = q.options[q.ans];
+                        const shuffledOptions = shuffleArray([...q.options]);
+                        return { ...q, options: shuffledOptions, ans: shuffledOptions.indexOf(correctOptionText) };
+                    });
+
+                    state[id] = {
+                        matchBatchIndex: 0,
+                        matchCompleted: [],
+                        mcqQueue: randomizedMCQ,
+                        mcqRetryQueue: [],
+                        mcqTotal: unitData.mcq.length,
+                        mcqCorrect: 0,
+                        mcqActiveQuestion: null,
+                        longScores: {},
+                        longAnswersText: {},
+                        longActiveIdx: 0
+                    };
+                    state[id].matchQs = shuffleArray([...unitData.match].map((m,i)=>({t:m.q, i})));
+                    state[id].matchAs = shuffleArray([...unitData.match].map((m,i)=>({t:m.a, i})));
+                    state[id].matchSelQ = null;
+                    state[id].matchSelA = null;
+                } else if (unitData.type === 'maths') {
+                    state[id] = { correct: 0, answers: {}, submitted: {} };
+                }
+            });
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function showToast(msg, icon = 'ph-info') {
+            const toast = document.getElementById('toast-message');
+            document.getElementById('toast-text').innerText = msg;
+            document.getElementById('toast-icon').className = `ph-fill ${icon} text-xl`;
+            toast.classList.remove('opacity-0');
+            setTimeout(() => { toast.classList.add('opacity-0'); }, 3000);
+        }
+
+        function updateStreakUI(isCorrect) {
+            const banner = document.getElementById('streak-banner');
+            const counter = document.getElementById('streak-counter');
+            
+            if (isCorrect) {
+                currentStreak++;
+                banner.classList.add('streak-glow', 'bg-violet-50');
+                banner.classList.remove('animate-streak-pop');
+                void banner.offsetWidth; // reflow
+                banner.classList.add('animate-streak-pop');
+                counter.innerText = currentStreak;
+            } else {
+                currentStreak = 0;
+                counter.innerText = currentStreak;
+                banner.classList.remove('streak-glow', 'bg-violet-50');
+                banner.classList.add('animate-shake');
+                setTimeout(() => banner.classList.remove('animate-shake'), 400);
+            }
+        }
+
+        function openUnit(id) {
+            currentUnitId = id;
+            const data = APP_DATA[id];
+            
+            document.getElementById('splash-screen').classList.add('hidden');
+            document.getElementById('app-header').classList.remove('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('main-body').classList.remove('overflow-hidden');
+            
+            document.getElementById('streak-emoji').innerText = data.emoji;
+            document.getElementById('header-icon').className = `ph-bold ${data.icon} text-2xl text-violet-600`;
+            document.getElementById('header-unit-title').innerText = data.title;
+            
+            renderActivityNav();
+            
+            if (data.type === 'standard') switchActivity('match');
+            else switchActivity('maths');
+        }
+
+        function returnToMenu() {
+            document.getElementById('splash-screen').classList.remove('hidden');
+            document.getElementById('app-header').classList.add('hidden');
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('main-body').classList.add('overflow-hidden');
+        }
+
+        function renderActivityNav() {
+            const nav = document.getElementById('activity-tabs');
+            nav.innerHTML = '';
+            const type = APP_DATA[currentUnitId].type;
+            
+            let tabs = [];
+            if (type === 'standard') {
+                tabs = [
+                    { id: 'match', label: '1. Match Up', icon: 'ph-arrows-merge' },
+                    { id: 'mcq', label: '2. Quiz', icon: 'ph-question' },
+                    { id: 'long', label: '3. Write', icon: 'ph-pencil-line' },
+                    { id: 'report', label: 'Progress', icon: 'ph-chart-bar' }
+                ];
+            } else {
+                tabs = [
+                    { id: 'maths', label: 'Calculations', icon: 'ph-calculator' },
+                    { id: 'report', label: 'Progress', icon: 'ph-chart-bar' }
+                ];
+            }
+            
+            tabs.forEach(t => {
+                const btn = document.createElement('button');
+                btn.id = `nav-btn-${t.id}`;
+                btn.className = `tab-btn flex flex-col items-center justify-center px-4 py-3 min-w-[120px] border-b-4 text-sm font-semibold transition-colors border-transparent text-slate-500 hover:bg-slate-50`;
+                btn.onclick = () => switchActivity(t.id);
+                btn.innerHTML = `<i class="ph-duotone ${t.icon} text-2xl mb-1"></i> <span class="whitespace-nowrap">${t.label}</span>`;
+                nav.appendChild(btn);
+            });
+        }
+
+        function switchActivity(actId) {
+            currentActivity = actId;
+            const data = APP_DATA[currentUnitId];
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-violet-500', 'text-violet-700', 'bg-violet-100');
+                btn.classList.add('border-transparent', 'text-slate-500');
+            });
+            const activeBtn = document.getElementById(`nav-btn-${actId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-transparent', 'text-slate-500');
+                activeBtn.classList.add('active', 'border-violet-500', 'text-violet-700', 'bg-violet-100');
+            }
+            
+            document.querySelectorAll('.activity-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(`tab-${actId}`).classList.add('active');
+
+            if (actId === 'match') renderMatch();
+            else if (actId === 'mcq') {
+                if (!state[currentUnitId].mcqActiveQuestion && state[currentUnitId].mcqQueue.length > 0) {
+                    state[currentUnitId].mcqActiveQuestion = state[currentUnitId].mcqQueue[0];
+                }
+                renderMCQ();
+            }
+            else if (actId === 'long') renderLongAnswers();
+            else if (actId === 'maths') renderMaths();
+            else if (actId === 'report') updateDashboard();
+        }
+
+        // MIX AND MATCH
+        function resetMatch() {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            s.matchCompleted = [];
+            s.matchBatchIndex = 0;
+            s.matchQs = shuffleArray([...data.match].map((m,i)=>({t:m.q, i})));
+            s.matchAs = shuffleArray([...data.match].map((m,i)=>({t:m.a, i})));
+            s.matchSelQ = null;
+            s.matchSelA = null;
+            renderMatch();
+            showToast("Match Reset", "ph-arrows-clockwise");
+        }
+
+        function renderMatch() {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+
+            document.getElementById('match-total').innerText = data.match.length;
+            document.getElementById('match-score').innerText = s.matchCompleted.length;
+            document.getElementById('match-batch-label').innerText = s.matchBatchIndex + 1;
+
+            if (s.matchCompleted.length === data.match.length) {
+                document.getElementById('match-grid').classList.add('hidden');
+                document.getElementById('match-complete').classList.remove('hidden');
+                return;
+            } else {
+                document.getElementById('match-grid').classList.remove('hidden');
+                document.getElementById('match-complete').classList.add('hidden');
+            }
+
+            const qCont = document.getElementById('match-questions');
+            const aCont = document.getElementById('match-answers');
+            qCont.innerHTML = ''; aCont.innerHTML = '';
+
+            const startIdx = s.matchBatchIndex * 8;
+            const endIdx = startIdx + 8;
+            
+            const currentQs = s.matchQs.filter(item => item.i >= startIdx && item.i < endIdx);
+            const currentAs = s.matchAs.filter(item => item.i >= startIdx && item.i < endIdx);
+
+            currentQs.forEach(item => {
+                if(s.matchCompleted.includes(item.i)) return;
+                const isSel = s.matchSelQ === item.i;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl shadow-sm border-2 transition-all font-semibold ${isSel ? 'bg-violet-50 border-violet-500 scale-[1.02] text-violet-700' : 'bg-white border-slate-200 hover:border-violet-300 text-slate-700 hover:shadow-md'}`;
+                btn.innerText = item.t;
+                btn.onclick = () => handleMatchSelect('q', item.i, btn);
+                btn.id = `match-q-${item.i}`;
+                qCont.appendChild(btn);
+            });
+
+            currentAs.forEach(item => {
+                if(s.matchCompleted.includes(item.i)) return;
+                const isSel = s.matchSelA === item.i;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl shadow-sm border-2 transition-all font-medium ${isSel ? 'bg-blue-50 border-blue-500 scale-[1.02] text-blue-700' : 'bg-white border-slate-200 hover:border-blue-300 text-slate-600 hover:shadow-md'}`;
+                btn.innerText = item.t;
+                btn.onclick = () => handleMatchSelect('a', item.i, btn);
+                btn.id = `match-a-${item.i}`;
+                aCont.appendChild(btn);
+            });
+        }
+
+        function handleMatchSelect(type, idx, btn) {
+            const s = state[currentUnitId];
+            if (type === 'q') s.matchSelQ = s.matchSelQ === idx ? null : idx;
+            else s.matchSelA = s.matchSelA === idx ? null : idx;
+            
+            renderMatch(); 
+
+            if (s.matchSelQ !== null && s.matchSelA !== null) {
+                if (s.matchSelQ === s.matchSelA) {
+                    s.matchCompleted.push(s.matchSelQ);
+                    s.matchSelQ = null; s.matchSelA = null;
+                    updateStreakUI(true);
+                    
+                    const startIdx = s.matchBatchIndex * 8;
+                    const batchCompletedCount = s.matchCompleted.filter(id => id >= startIdx && id < startIdx + 8).length;
+                    
+                    if (batchCompletedCount === 8 && s.matchBatchIndex === 0 && APP_DATA[currentUnitId].match.length > 8) {
+                        setTimeout(() => { s.matchBatchIndex = 1; renderMatch(); }, 600);
+                    } else if (s.matchCompleted.length === APP_DATA[currentUnitId].match.length) {
+                        setTimeout(() => { triggerLockedInOverlay(); renderMatch(); }, 600);
+                    } else {
+                        setTimeout(() => renderMatch(), 300);
+                    }
+                } else {
+                    const qBtn = document.getElementById(`match-q-${s.matchSelQ}`);
+                    const aBtn = document.getElementById(`match-a-${s.matchSelA}`);
+                    if(qBtn) qBtn.classList.add('animate-shake', 'bg-red-50', 'border-red-400', 'text-red-700');
+                    if(aBtn) aBtn.classList.add('animate-shake', 'bg-red-50', 'border-red-400', 'text-red-700');
+                    updateStreakUI(false);
+                    setTimeout(() => { s.matchSelQ = null; s.matchSelA = null; renderMatch(); }, 500);
+                }
+            }
+        }
+
+        // MCQ
+        function startMCQRetry() {
+            const s = state[currentUnitId];
+            s.mcqQueue = shuffleArray([...s.mcqRetryQueue]).map(q => {
+                const correctOptionText = q.options[q.ans];
+                const shuffledOptions = shuffleArray([...q.options]);
+                return { ...q, options: shuffledOptions, ans: shuffledOptions.indexOf(correctOptionText) };
+            });
+            s.mcqRetryQueue = [];
+            s.mcqActiveQuestion = s.mcqQueue[0];
+            renderMCQ();
+        }
+
+        function renderMCQ() {
+            const s = state[currentUnitId];
+            const q = s.mcqActiveQuestion;
+
+            document.getElementById('mcq-progress').innerText = `${s.mcqCorrect} / ${s.mcqTotal}`;
+
+            if (!q) {
+                document.getElementById('mcq-container').classList.add('hidden');
+                if (s.mcqRetryQueue.length > 0) {
+                    document.getElementById('mcq-retry-screen').classList.remove('hidden');
+                    document.getElementById('mcq-complete').classList.add('hidden');
+                    document.getElementById('mcq-retry-count').innerText = s.mcqRetryQueue.length;
+                } else {
+                    document.getElementById('mcq-retry-screen').classList.add('hidden');
+                    document.getElementById('mcq-complete').classList.remove('hidden');
+                }
+                return;
+            }
+
+            document.getElementById('mcq-container').classList.remove('hidden');
+            document.getElementById('mcq-complete').classList.add('hidden');
+            document.getElementById('mcq-retry-screen').classList.add('hidden');
+
+            document.getElementById('mcq-question').innerText = q.q;
+            const optionsContainer = document.getElementById('mcq-options');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border border-slate-600 transition-all font-medium text-lg bg-slate-700 hover:border-blue-400 hover:bg-slate-600 text-slate-200 shadow-sm`;
+                btn.innerText = opt;
+                btn.onclick = () => handleMCQSelect(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleMCQSelect(selIdx, btn) {
+            const s = state[currentUnitId];
+            const q = s.mcqActiveQuestion;
+            const isCorrect = selIdx === q.ans;
+            const allBtns = document.getElementById('mcq-options').children;
+
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-slate-800 border-slate-700 text-slate-500 opacity-50 pointer-events-none";
+                if(i === selIdx) {
+                    if(isCorrect) allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-emerald-900/30 border-emerald-500 text-emerald-400 pointer-events-none shadow-sm";
+                    else allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-red-900/30 border-red-500 text-red-400 pointer-events-none animate-shake shadow-sm";
+                }
+                if(i === q.ans && !isCorrect) {
+                     allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg border-emerald-500/50 bg-slate-800 text-slate-300 border-dashed pointer-events-none";
+                }
+            }
+
+            s.mcqQueue.shift(); 
+            
+            if (isCorrect) {
+                s.mcqCorrect++;
+                updateStreakUI(true);
+                if (s.mcqCorrect === s.mcqTotal && s.mcqQueue.length === 0) {
+                    setTimeout(() => triggerLockedInOverlay(), 500);
+                }
+            } else {
+                s.mcqRetryQueue.push(q);
+                updateStreakUI(false);
+            }
+
+            setTimeout(() => {
+                s.mcqActiveQuestion = s.mcqQueue.length > 0 ? s.mcqQueue[0] : null;
+                renderMCQ();
+            }, 1200);
+        }
+
+        // LONG ANSWERS
+        function renderLongAnswers() {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            const list = document.getElementById('long-list');
+            list.innerHTML = '';
+            
+            const index = s.longActiveIdx;
+            const item = data.long[index];
+            const hasMark = s.longScores[index] !== undefined;
+            
+            const div = document.createElement('div');
+            div.className = "bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 mb-6 animate-fade-in";
+            
+            let html = `
+                <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-wider text-sm">Question ${index + 1} of ${data.long.length}</h4>
+                    <div class="flex gap-1">
+                        ${data.long.map((_, i) => `<div class="w-3 h-3 rounded-full ${i === index ? 'bg-amber-500 shadow-sm' : (s.longScores[i] !== undefined ? 'bg-emerald-400' : 'bg-slate-200')}"></div>`).join('')}
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <h4 class="font-bold text-lg text-slate-800 leading-relaxed">${item.q}</h4>
+                </div>
+            `;
+
+            if (!hasMark) {
+                const savedText = s.longAnswersText[index] || '';
+                html += `
+                    <div class="relative mt-2">
+                        <textarea id="long-input-${index}" placeholder="Type or dictate your answer here..." class="w-full h-40 p-4 border-2 rounded-xl outline-none resize-none transition-colors border-slate-200 focus:border-amber-400 bg-slate-50 text-slate-700 text-base placeholder-slate-400">${savedText}</textarea>
+                        <button id="dictate-btn-${index}" onclick="toggleDictation(${index})" class="absolute bottom-4 right-4 p-3 rounded-full shadow-md transition-all bg-white text-slate-500 hover:text-amber-500 border border-slate-200" title="Dictate Answer">
+                            <i class="ph-fill ph-microphone text-xl"></i>
+                        </button>
+                    </div>
+                    <button onclick="submitLong(${index})" class="mt-6 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                        <i class="ph-bold ph-check-square-offset"></i> Submit & Reveal Mark Scheme
+                    </button>
+                `;
+            } else {
+                const userText = s.longAnswersText[index] || 'No answer provided.';
+                html += `
+                    <div class="bg-slate-50 p-5 rounded-xl mb-4 border border-slate-200">
+                        <div class="font-bold text-slate-500 mb-2 uppercase tracking-wider text-xs flex items-center gap-2">
+                            <i class="ph-fill ph-user text-lg"></i> Your Answer:
+                        </div>
+                        <div class="text-slate-700 whitespace-pre-line font-medium leading-relaxed">${userText}</div>
+                    </div>
+
+                    <div class="bg-blue-50 p-6 rounded-xl mb-6 border border-blue-200 shadow-inner">
+                        <div class="font-bold text-blue-700 mb-3 uppercase tracking-wider text-xs flex items-center gap-2">
+                            <i class="ph-fill ph-star text-lg"></i> Perfect Model Answer:
+                        </div>
+                        <div class="text-slate-700 whitespace-pre-line font-medium leading-relaxed">${item.model}</div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between bg-white p-5 rounded-xl border border-slate-200 shadow-sm mb-6">
+                        <div class="mb-4 md:mb-0 text-center md:text-left">
+                            <span class="font-bold text-slate-800 block text-lg">Assess Your Answer</span>
+                            <span class="text-sm text-slate-500 font-medium">Read the model above. How many marks did you achieve?</span>
+                        </div>
+                        <div class="flex gap-2 flex-wrap justify-center">
+                            ${Array.from({length: item.maxMarks + 1}, (_, m) => `
+                                <button onclick="setLongScore(${index},${m})" class="w-12 h-12 rounded-xl font-bold text-lg transition-all shadow-sm ${s.longScores[index] === m ? 'bg-amber-500 text-white border-2 border-amber-600 scale-110 shadow-md' : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:text-amber-600'}">
+                                    ${m}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+
+                if (index < data.long.length - 1) {
+                    html += `
+                        <button onclick="nextLongQuestion()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                            Next Question <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    `;
+                } else {
+                    html += `
+                        <button onclick="switchActivity('report')" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                            <i class="ph-bold ph-chart-bar"></i> View Progress
+                        </button>
+                    `;
+                }
+            }
+            div.innerHTML = html;
+            list.appendChild(div);
+        }
+
+        function nextLongQuestion() {
+            state[currentUnitId].longActiveIdx++;
+            renderLongAnswers();
+        }
+
+        function toggleDictation(idx) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) { showToast("Dictation not supported.", "ph-warning"); return; }
+            const btn = document.getElementById(`dictate-btn-${idx}`);
+            const input = document.getElementById(`long-input-${idx}`);
+            if (activeDictationId === idx && dictationRecognition) { dictationRecognition.stop(); return; }
+            if (dictationRecognition) dictationRecognition.stop();
+            dictationRecognition = new SpeechRecognition();
+            dictationRecognition.continuous = false; dictationRecognition.interimResults = false; dictationRecognition.lang = 'en-GB';
+            dictationRecognition.onstart = () => { activeDictationId = idx; btn.classList.add('text-red-500'); showToast("Listening...", "ph-microphone"); };
+            dictationRecognition.onresult = (e) => { input.value = input.value ? input.value + " " + e.results[0][0].transcript : e.results[0][0].transcript; state[currentUnitId].longAnswersText[idx] = input.value; };
+            dictationRecognition.onend = () => { activeDictationId = null; btn.classList.remove('text-red-500'); };
+            dictationRecognition.start();
+        }
+
+        function submitLong(idx) {
+            const text = document.getElementById(`long-input-${idx}`).value.trim();
+            if (text.length < 5) { showToast("Please write a longer answer.", "ph-warning-circle"); return; }
+            state[currentUnitId].longAnswersText[idx] = text;
+            state[currentUnitId].longScores[idx] = 0; 
+            renderLongAnswers();
+        }
+
+        function setLongScore(idx, score) {
+            state[currentUnitId].longScores[idx] = score;
+            renderLongAnswers(); 
+        }
+
+        // MATHS
+        function renderMaths() {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            const list = document.getElementById('maths-list');
+            list.innerHTML = '';
+            
+            document.getElementById('maths-score').nextSibling.textContent = ` / ${data.questions.length}`;
+            document.getElementById('maths-score').innerText = s.correct;
+
+            data.questions.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = "bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center";
+                let html = `
+                    <div class="flex-1">
+                        <span class="font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded text-sm mr-2 border border-blue-200">Q${index + 1}</span>
+                        <span class="font-semibold text-slate-700">${item.q}</span>
+                        <div class="text-sm font-medium text-amber-600 bg-amber-50 border border-amber-200 p-2 rounded-lg mt-3 flex items-start gap-2">
+                            <i class="ph-bold ph-lightbulb mt-0.5"></i> <span>${item.hint}</span>
+                        </div>
+                    </div>
+                `;
+                if (!s.submitted[index]) {
+                    html += `
+                        <div class="w-full md:w-auto shrink-0 flex flex-row items-center gap-2 mt-3 md:mt-0">
+                            <input type="number" step="any" id="maths-input-${index}" placeholder="Answer" oninput="state['${currentUnitId}'].answers[${index}] = this.value" value="${s.answers[index] || ''}" class="w-full md:w-32 p-3 border-2 rounded-lg text-center font-bold outline-none border-slate-300 focus:border-blue-500 bg-white transition-colors">
+                            <button onclick="submitMaths(${index})" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-5 rounded-lg shadow-sm transition-colors whitespace-nowrap">
+                                Check
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    const uAns = s.answers[index] || '';
+                    const isCorrect = uAns.trim() === item.a;
+                    html += `
+                        <div class="w-full md:w-80 shrink-0 flex flex-col gap-2 mt-3 md:mt-0">
+                            <div class="flex items-center gap-2 w-full">
+                                <div class="w-full p-3 border-2 rounded-lg text-center font-bold ${isCorrect ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-red-500 bg-red-50 text-red-700'}">
+                                    ${uAns || '-'}
+                                </div>
+                                <i class="ph-fill ${isCorrect ? 'ph-check-circle text-emerald-500' : 'ph-x-circle text-red-500'} text-3xl shrink-0"></i>
+                            </div>
+                            <div class="text-xs bg-white p-3 rounded border border-slate-200 text-slate-600 font-medium whitespace-pre-line shadow-inner">
+                                <span class="font-bold text-blue-600 block mb-1">Correct Answer: ${item.a}</span>
+                                <span class="font-bold text-slate-700 block mb-1">Working:</span>${item.working}
+                            </div>
+                        </div>
+                    `;
+                }
+                div.innerHTML = html; list.appendChild(div);
+            });
+        }
+
+        function submitMaths(idx) {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            const input = document.getElementById(`maths-input-${idx}`);
+            if (input) s.answers[idx] = input.value;
+            s.submitted[idx] = true;
+            
+            const isCorrect = (s.answers[idx] || '').trim() === data.questions[idx].a;
+            if (isCorrect) { s.correct++; updateStreakUI(true); } else { updateStreakUI(false); }
+            
+            renderMaths();
+            const allSubmitted = data.questions.every((_, i) => s.submitted[i]);
+            if (allSubmitted) {
+                if (s.correct === data.questions.length) { showToast("Perfect calculations!", "ph-check-circle"); triggerLockedInOverlay(); }
+                else { showToast(`You scored ${s.correct}/${data.questions.length}.`, "ph-info"); }
+            }
+        }
+
+        // DASHBOARD
+        function updateDashboard() {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            document.getElementById('dash-bg-icon').className = `ph-fill ${data.icon} text-[15rem]`;
+            
+            let currentTotal = 0; let possibleTotal = 0;
+            if (data.type === 'standard') {
+                document.getElementById('dash-standard-stats').classList.remove('hidden');
+                document.getElementById('dash-maths-stats').classList.add('hidden');
+                document.getElementById('dash-score-match').innerText = s.matchCompleted.length;
+                document.getElementById('dash-score-mcq').innerText = s.mcqCorrect;
+                currentTotal += s.matchCompleted.length + s.mcqCorrect;
+                possibleTotal += data.match.length + s.mcqTotal;
+                let longCurrent = 0; let longMax = 0;
+                data.long.forEach((l, i) => { longCurrent += (s.longScores[i] || 0); longMax += l.maxMarks; });
+                document.getElementById('dash-score-long').innerText = longCurrent;
+                currentTotal += longCurrent; possibleTotal += longMax;
+            } else {
+                document.getElementById('dash-standard-stats').classList.add('hidden');
+                document.getElementById('dash-maths-stats').classList.remove('hidden');
+                document.getElementById('dash-score-maths').innerText = s.correct;
+                currentTotal = s.correct; possibleTotal = data.questions.length;
+            }
+            const percent = Math.round((currentTotal / possibleTotal) * 100) || 0;
+            document.getElementById('dash-percentage').innerText = `${percent}%`;
+        }
+
+        function handleReportClick() {
+            reportContext = 'unit';
+            document.getElementById('name-modal').classList.remove('hidden');
+            document.getElementById('name-modal').classList.add('flex');
+            document.getElementById('student-name-input').focus();
+        }
+
+        function handleOverallReportClick() {
+            reportContext = 'overall';
+            document.getElementById('name-modal').classList.remove('hidden');
+            document.getElementById('name-modal').classList.add('flex');
+            document.getElementById('student-name-input').focus();
+        }
+
+        function closeNameModal() { document.getElementById('name-modal').classList.add('hidden'); document.getElementById('name-modal').classList.remove('flex'); }
+
+        function saveNameAndShowScorecard() {
+            const input = document.getElementById('student-name-input');
+            const name = input.value.trim();
+            if (name) { 
+                closeNameModal(); 
+                if (reportContext === 'overall') {
+                    generateOverallScorecard(name);
+                } else {
+                    generateScorecard(name);
+                }
+            } 
+            else {
+                input.classList.add('border-red-500', 'animate-shake', 'bg-red-50');
+                setTimeout(() => input.classList.remove('animate-shake', 'border-red-500', 'bg-red-50'), 400);
+            }
+        }
+
+        function generateOverallScorecard(name) {
+            document.getElementById('sc-name').innerText = name;
+            document.getElementById('sc-unit').innerText = "All Units (Overall Score)";
+            
+            let matchTotal = 0, matchMax = 0;
+            let mcqTotal = 0, mcqMax = 0;
+            let longTotal = 0, longMax = 0;
+            let mathsTotal = 0, mathsMax = 0;
+
+            ['u1', 'u2'].forEach(id => {
+                const data = APP_DATA[id];
+                const s = state[id];
+                
+                matchTotal += s.matchCompleted.length;
+                matchMax += data.match.length;
+                
+                mcqTotal += s.mcqCorrect;
+                mcqMax += s.mcqTotal;
+                
+                data.long.forEach((l, i) => { 
+                    longTotal += (s.longScores[i] || 0); 
+                    longMax += l.maxMarks; 
+                });
+            });
+
+            const mathsData = APP_DATA['maths'];
+            const mathsState = state['maths'];
+            mathsTotal = mathsState.correct;
+            mathsMax = mathsData.questions.length;
+
+            document.getElementById('sc-standard-stats').classList.remove('hidden');
+            document.getElementById('sc-maths-stats').classList.remove('hidden');
+            
+            document.getElementById('sc-match').innerText = matchTotal;
+            document.getElementById('sc-total-match-display').innerText = `/ ${matchMax}`;
+            
+            document.getElementById('sc-mcq').innerText = mcqTotal;
+            document.getElementById('sc-total-mcq').innerText = mcqMax;
+            
+            document.getElementById('sc-long').innerText = longTotal;
+            document.getElementById('sc-total-long').innerText = longMax;
+
+            document.getElementById('sc-maths').innerText = mathsTotal;
+            document.getElementById('sc-total-maths-display').innerText = `/ ${mathsMax}`;
+
+            const currentTotal = matchTotal + mcqTotal + longTotal + mathsTotal;
+            const possibleTotal = matchMax + mcqMax + longMax + mathsMax;
+
+            const percent = Math.round((currentTotal / possibleTotal) * 100) || 0;
+            document.getElementById('sc-total').innerText = currentTotal;
+            document.getElementById('sc-max').innerText = possibleTotal;
+            document.getElementById('sc-percent').innerText = percent;
+            
+            const now = new Date();
+            document.getElementById('sc-timestamp').innerText = `${now.toLocaleDateString()} at ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+            document.getElementById('scorecard-modal').classList.remove('hidden');
+            document.getElementById('scorecard-modal').classList.add('flex');
+
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance("Thank you for locking in to your science revision today.");
+                const voices = window.speechSynthesis.getVoices();
+                const ukVoice = voices.find(voice => voice.lang === 'en-GB');
+                if (ukVoice) utterance.voice = ukVoice;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function generateScorecard(name) {
+            const data = APP_DATA[currentUnitId];
+            const s = state[currentUnitId];
+            document.getElementById('sc-name').innerText = name;
+            document.getElementById('sc-unit').innerText = data.title;
+            
+            let currentTotal = 0; let possibleTotal = 0;
+            if (data.type === 'standard') {
+                document.getElementById('sc-standard-stats').classList.remove('hidden');
+                document.getElementById('sc-maths-stats').classList.add('hidden');
+                document.getElementById('sc-match').innerText = s.matchCompleted.length;
+                document.getElementById('sc-mcq').innerText = s.mcqCorrect;
+                currentTotal += s.matchCompleted.length + s.mcqCorrect;
+                possibleTotal += data.match.length + s.mcqTotal;
+                let longCurrent = 0; let longMax = 0;
+                data.long.forEach((l, i) => { longCurrent += (s.longScores[i] || 0); longMax += l.maxMarks; });
+                document.getElementById('sc-long').innerText = longCurrent;
+                document.getElementById('sc-total-long').innerText = longMax;
+                currentTotal += longCurrent; possibleTotal += longMax;
+            } else {
+                document.getElementById('sc-standard-stats').classList.add('hidden');
+                document.getElementById('sc-maths-stats').classList.remove('hidden');
+                document.getElementById('sc-maths').innerText = s.correct;
+                document.getElementById('sc-total-maths-display').innerText = `/ ${data.questions.length}`;
+                currentTotal = s.correct; possibleTotal = data.questions.length;
+            }
+
+            const percent = Math.round((currentTotal / possibleTotal) * 100) || 0;
+            document.getElementById('sc-total').innerText = currentTotal;
+            document.getElementById('sc-max').innerText = possibleTotal;
+            document.getElementById('sc-percent').innerText = percent;
+            
+            const now = new Date();
+            document.getElementById('sc-timestamp').innerText = `${now.toLocaleDateString()} at ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+
+            document.getElementById('scorecard-modal').classList.remove('hidden');
+            document.getElementById('scorecard-modal').classList.add('flex');
+
+            // Text-to-Speech
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance("Thank you for locking in to your science revision today.");
+                const voices = window.speechSynthesis.getVoices();
+                const ukVoice = voices.find(voice => voice.lang === 'en-GB');
+                if (ukVoice) utterance.voice = ukVoice;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function closeScorecard() { document.getElementById('scorecard-modal').classList.add('hidden'); document.getElementById('scorecard-modal').classList.remove('flex'); }
+
+        window.onload = () => { initState(); };
+    </script>
+</body>
+</html>
