@@ -111,7 +111,7 @@
             <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-slate-800 tracking-tight mb-2 leading-tight drop-shadow-sm">
                 KS3 Science <span class="text-violet-600">Masterclass</span>
             </h1>
-            <p class="text-violet-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-10 bg-violet-200/50 px-4 py-1.5 rounded-full border border-violet-300 shadow-sm">Created by Mr Reeve | Interactive Revision Environment</p>
+            <p class="text-violet-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-10 bg-violet-200/50 px-4 py-1.5 rounded-full border border-violet-300 shadow-sm">Created by Mr Reeve | Year 7 Revision</p>
             
             <div class="w-full text-left px-2 max-w-3xl mx-auto space-y-8">
                 <div>
@@ -120,15 +120,15 @@
                         <button onclick="openUnit('u1')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
                             <div class="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors"><i class="ph-duotone ph-snowman text-4xl text-blue-500"></i></div>
                             <div>
-                                <h3 class="font-heading font-bold text-slate-800 text-xl">States of Matter</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Particles, state changes, diffusion & density.</p>
+                                <h3 class="font-heading font-bold text-slate-800 text-xl">Matter & Mixtures</h3>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Particles, separating techniques, fire & water.</p>
                             </div>
                         </button>
                         <button onclick="openUnit('u2')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
                             <div class="bg-violet-50 p-4 rounded-xl group-hover:bg-violet-100 transition-colors"><i class="ph-duotone ph-rocket-launch text-4xl text-violet-500"></i></div>
                             <div>
                                 <h3 class="font-heading font-bold text-slate-800 text-xl">Forces & Space</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Gravity, friction, speed, orbits & seasons.</p>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Push/pulls, rockets, planets, seasons & years.</p>
                             </div>
                         </button>
                     </div>
@@ -141,7 +141,7 @@
                             <div class="bg-amber-50 p-4 rounded-xl group-hover:bg-amber-100 transition-colors"><i class="ph-duotone ph-calculator text-4xl text-amber-500"></i></div>
                             <div>
                                 <h3 class="font-heading font-bold text-slate-800 text-xl">Working Scientifically</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Equations, averages & unit conversions.</p>
+                                <p class="text-sm text-slate-500 font-medium mt-1">Simple speed, density & data calculations.</p>
                             </div>
                         </button>
                     </div>
@@ -255,7 +255,7 @@
         <div id="tab-long" class="activity-content animate-fade-in">
             <div class="mb-6 border-b border-slate-200 pb-4">
                 <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500"></i> Extended Answers</h3>
-                <p class="text-slate-500 text-sm mt-1">Type your answer, then check it against the model answer and give yourself a score out of 6.</p>
+                <p class="text-slate-500 text-sm mt-1">Type your answer, then check it against the model answer and give yourself a score out of 3.</p>
             </div>
             <div id="long-list" class="space-y-8"></div>
         </div>
@@ -412,122 +412,122 @@
     <script>
         const APP_DATA = {
             u1: { 
-                id: 'u1', title: "States of Matter", icon: "ph-snowman", emoji: "⛄", type: "standard",
+                id: 'u1', title: "Matter & Mixtures", icon: "ph-snowman", emoji: "⛄", type: "standard",
                 match: [
                     {q:"Solid", a:"Particles are closely packed in a regular arrangement and vibrate in fixed positions."},
                     {q:"Liquid", a:"Particles are close together but randomly arranged, able to move around each other."},
                     {q:"Gas", a:"Particles are far apart, moving rapidly in all directions randomly."},
                     {q:"Melting", a:"The process where a solid turns into a liquid when heated."},
-                    {q:"Freezing", a:"The process where a liquid turns into a solid when cooled."},
-                    {q:"Boiling", a:"When a liquid turns into a gas throughout the liquid at a specific temperature."},
-                    {q:"Evaporation", a:"When a liquid slowly turns into a gas only at the surface, at any temperature."},
+                    {q:"Evaporation", a:"When a liquid slowly turns into a gas at the surface."},
                     {q:"Condensation", a:"The process where a gas turns into a liquid when cooled."},
-                    {q:"Sublimation", a:"When a solid turns directly into a gas without becoming a liquid first."},
-                    {q:"Diffusion", a:"The spreading out of particles from an area of high concentration to an area of low concentration."},
-                    {q:"Density", a:"The mass of a substance per unit volume (how tightly packed the particles are)."},
-                    {q:"Gas Pressure", a:"The force created when gas particles collide with the walls of their container."},
-                    {q:"Brownian Motion", a:"The random, zigzag movement of particles suspended in a fluid (like dust in air)."},
-                    {q:"Conservation of Mass", a:"When a substance changes state, its mass stays exactly the same because the number of particles doesn't change."},
-                    {q:"Expansion", a:"When a substance is heated, its particles move faster and push further apart, increasing the volume."},
-                    {q:"Contraction", a:"When a substance is cooled, its particles move slower and get closer together, decreasing the volume."}
+                    {q:"Freezing", a:"The process where a liquid turns into a solid when cooled."},
+                    {q:"Filtration", a:"A method to separate an insoluble solid (like sand) from a liquid using filter paper."},
+                    {q:"Distillation", a:"A method to get pure liquid from a solution by boiling it and then condensing the gas."},
+                    {q:"Chromatography", a:"A method used to separate a mixture of coloured dyes, like in black ink."},
+                    {q:"Solute", a:"The solid substance that dissolves in a liquid (e.g., sugar)."},
+                    {q:"Solvent", a:"The liquid that does the dissolving (e.g., water)."},
+                    {q:"Solution", a:"The mixture formed when a solute dissolves completely in a solvent."},
+                    {q:"Fire Triangle", a:"The three things a fire needs to burn: Heat, Oxygen, and Fuel."},
+                    {q:"Chlorination", a:"Adding chlorine gas to water to kill harmful bacteria during water treatment."},
+                    {q:"Insoluble", a:"A substance that will not dissolve in a liquid (e.g., sand in water)."}
                 ],
                 mcq: [
-                    { q: "Which state of matter cannot be compressed (squashed)?", options: ["Solid", "Gas", "Both liquid and gas", "Air"], ans: 0 },
-                    { q: "What happens to the particles in an ice cube when it melts?", options: ["They gain energy and break away from their fixed arrangement to move past each other", "They lose energy and stop moving entirely", "They turn into a gas and float away", "The particles themselves get bigger"], ans: 0 },
-                    { q: "Why is a gas easy to compress?", options: ["Because there are large empty spaces between the particles", "Because the particles are very small", "Because gas particles are soft", "Because gas particles have no mass"], ans: 0 },
-                    { q: "Which process describes the smell of baking bread spreading through a house?", options: ["Diffusion", "Evaporation", "Condensation", "Sublimation"], ans: 0 },
-                    { q: "Why does diffusion happen faster in a warm room than a cold room?", options: ["The particles have more heat energy so they move faster", "The particles get lighter when they are warm", "The air pressure pushes them harder", "Cold rooms have thicker air"], ans: 0 },
-                    { q: "What causes gas pressure inside a balloon?", options: ["Gas particles constantly colliding with the inside surface of the balloon", "The air outside pushing on the balloon", "Gravity pulling the gas down", "The balloon shrinking"], ans: 0 },
-                    { q: "If you heat a gas inside a sealed metal can, what happens to the pressure?", options: ["The pressure increases because particles hit the walls harder and more often", "The pressure decreases because the gas expands", "The pressure stays the same", "The can melts immediately"], ans: 0 },
-                    { q: "What is density?", options: ["The mass of a certain volume of a substance", "How heavy something is", "The volume of a certain mass", "How much space something takes up"], ans: 0 },
-                    { q: "Which state of matter usually has the highest density?", options: ["Solid", "Liquid", "Gas", "Plasma"], ans: 0 },
-                    { q: "How do you calculate density?", options: ["Density = Mass ÷ Volume", "Density = Volume ÷ Mass", "Density = Mass × Volume", "Density = Weight × Volume"], ans: 0 },
-                    { q: "What happens to the mass of a puddle of water when it evaporates?", options: ["The mass stays the same, it just moves into the air as a gas", "The mass disappears completely", "The mass increases", "The mass halves"], ans: 0 },
-                    { q: "What is Sublimation?", options: ["A solid turning directly into a gas (e.g. dry ice)", "A gas turning into a liquid", "A liquid turning into a solid", "A solid dissolving in water"], ans: 0 },
-                    { q: "Why do railway tracks have small gaps left between them?", options: ["To allow the metal to expand in hot weather without buckling", "To save metal when building", "To let water drain through", "To make a clicking sound for safety"], ans: 0 },
-                    { q: "What is the boiling point of pure water?", options: ["100°C", "0°C", "50°C", "212°C"], ans: 0 },
-                    { q: "What is Brownian motion?", options: ["The random movement of visible particles caused by invisible fluid particles colliding with them", "The way liquids flow downhill", "The expanding of metals", "The way ice melts"], ans: 0 },
-                    { q: "Which arrangement best describes a liquid?", options: ["Particles are touching but randomly arranged and can move", "Particles are far apart and move quickly", "Particles are in neat rows and vibrate", "Particles are separated by a membrane"], ans: 0 },
-                    { q: "Why does a mirror fog up when you take a hot shower?", options: ["Water vapor in the air hits the cold mirror, cools down, and condenses into liquid drops", "The mirror absorbs the heat", "The water evaporates off the mirror", "The hot water splashes onto the mirror"], ans: 0 },
-                    { q: "What is the difference between boiling and evaporation?", options: ["Evaporation happens at any temperature at the surface; boiling happens at a specific temperature throughout the liquid", "They are exactly the same thing", "Boiling is only for water, evaporation is for all liquids", "Evaporation is faster than boiling"], ans: 0 },
-                    { q: "When a liquid freezes to become a solid, what happens to the energy of the particles?", options: ["They lose energy to the surroundings", "They gain energy from the surroundings", "Their energy stays the same", "They destroy their energy"], ans: 0 },
-                    { q: "If you have 100g of ice and melt it, what will be the mass of the liquid water?", options: ["Exactly 100g (Conservation of Mass)", "Less than 100g because it shrinks", "More than 100g because it spreads out", "0g"] }
+                    { q: "Which state of matter cannot be squashed (compressed) and keeps its own shape?", options: ["Solid", "Gas", "Liquid", "Air"], ans: 0 },
+                    { q: "What happens to the particles in an ice cube when it melts?", options: ["They gain heat energy and break away from their neat pattern to move past each other", "They lose energy and stop moving entirely", "They turn into a gas and float away", "The particles themselves get bigger"], ans: 0 },
+                    { q: "Why is it easy to squash a balloon filled with gas?", options: ["Because there are large empty spaces between the gas particles", "Because the particles are very soft", "Because gas particles are wet", "Because gas particles have no mass"], ans: 0 },
+                    { q: "Which piece of equipment is essential for filtration?", options: ["Filter paper and a funnel", "A thermometer", "A Bunsen burner", "A magnet"], ans: 0 },
+                    { q: "If you have a mixture of sand and salty water, how do you get the sand out?", options: ["Pour it through filter paper; the sand gets trapped and the salty water goes through", "Boil it until the sand evaporates", "Use a magnet to pull the sand out", "Freeze it"], ans: 0 },
+                    { q: "After filtering, how can you get the pure water back from the salty water?", options: ["Use distillation: boil the water into steam, then cool it down so it condenses back to pure liquid", "Use chromatography paper", "Filter it a second time", "Add chlorine to it"], ans: 0 },
+                    { q: "In chromatography, why do different colours in ink separate?", options: ["Because some dyes dissolve better and travel faster up the paper than others", "Because the paper is magic", "Because the ink gets too hot", "Because the water washes them away completely"], ans: 0 },
+                    { q: "When you stir sugar into tea, the sugar is the...", options: ["Solute", "Solvent", "Solution", "Insoluble solid"], ans: 0 },
+                    { q: "Which of the following is an example of an insoluble substance?", options: ["Sand in water", "Salt in water", "Sugar in tea", "Coffee granules in hot water"], ans: 0 },
+                    { q: "What are the three sides of the Fire Triangle?", options: ["Heat, Oxygen, and Fuel", "Wood, Matches, and Air", "Water, Earth, and Fire", "Carbon dioxide, Heat, and Light"], ans: 0 },
+                    { q: "How does a fire blanket put out a chip pan fire?", options: ["It cuts off the oxygen supply (removes one side of the fire triangle)", "It cools the fire down instantly", "It removes the fuel", "It creates wind to blow it out"], ans: 0 },
+                    { q: "Why do we add chlorine to drinking water at a water treatment plant?", options: ["To kill dangerous bacteria and microorganisms", "To make it taste sweet", "To turn it blue", "To filter out large pieces of rubbish"], ans: 0 },
+                    { q: "What is the first step in treating dirty river water so we can drink it?", options: ["Screening and filtering to remove large objects like twigs and dirt", "Boiling it", "Adding chlorine", "Freezing it"], ans: 0 },
+                    { q: "What happens to the mass of a puddle of water when it evaporates?", options: ["The mass stays exactly the same, it just moves into the air as a gas", "The mass disappears completely", "The mass gets heavier", "The mass halves"], ans: 0 },
+                    { q: "Which arrangement best describes a liquid?", options: ["Particles are touching but randomly arranged and can slide around", "Particles are far apart and move quickly", "Particles are in neat rows and vibrate", "Particles are locked in a cage"], ans: 0 },
+                    { q: "Why does a mirror fog up when you take a hot shower?", options: ["Hot water vapour in the air hits the cold mirror and condenses into liquid drops", "The mirror absorbs the heat", "The water evaporates off the mirror", "The hot water splashes onto the mirror"], ans: 0 },
+                    { q: "What is the difference between boiling and evaporation?", options: ["Evaporation happens at the surface at any temperature; boiling happens throughout the liquid at a specific temperature", "They are exactly the same thing", "Boiling is only for water, evaporation is for juice", "Evaporation is much faster than boiling"], ans: 0 },
+                    { q: "When a liquid freezes to become a solid, what happens to the energy of the particles?", options: ["They lose energy and slow down until they are fixed in place", "They gain energy and move faster", "Their energy stays the same", "They explode"], ans: 0 },
+                    { q: "Which of these would you use to put out an electrical fire?", options: ["A Carbon Dioxide (CO2) extinguisher, because it removes oxygen without conducting electricity", "A bucket of water", "A wet towel", "Blowing on it"], ans: 0 },
+                    { q: "What is the boiling point of pure water?", options: ["100°C", "0°C", "50°C", "212°C"], ans: 0 }
                 ],
                 long: [
-                    { q: "Describe the arrangement and movement of particles in a solid, a liquid, and a gas. (3 marks)", model: "1. Solids have closely packed particles in a regular pattern that vibrate.\n2. Liquids have particles that touch but can slide past each other.\n3. Gases have particles far apart moving rapidly in all directions.", maxMarks: 3 },
-                    { q: "Explain how a gas exerts pressure on its container and why heating it increases the pressure. (3 marks)", model: "1. Gas particles collide with the walls of the container, exerting a force.\n2. Heating the gas gives particles more kinetic energy so they move faster.\n3. This causes more frequent and forceful collisions, increasing pressure.", maxMarks: 3 },
-                    { q: "Describe how to find the density of an irregular stone. (3 marks)", model: "1. Measure the mass of the stone using a digital balance.\n2. Submerge the stone in a Eureka can and measure the volume of displaced water.\n3. Calculate density by dividing the mass by the volume.", maxMarks: 3 }
+                    { q: "Describe how to separate a mixture of sand and salty water to get pure, dry sand and pure water. (3 marks)", model: "1. Pour the mixture through filter paper in a funnel. The sand gets trapped (filtration).\n2. Heat the salty water that passes through until the water boils into steam.\n3. Cool the steam down using a condenser so it turns back into pure liquid water (distillation).", maxMarks: 3 },
+                    { q: "Explain how chromatography separates the different colours in black ink. (3 marks)", model: "1. Draw a pencil line on chromatography paper and put a dot of ink on it.\n2. Place the bottom of the paper in a solvent (like water).\n3. As the water moves up the paper, it carries the different coloured dyes at different speeds, separating them.", maxMarks: 3 },
+                    { q: "Name the three parts of the fire triangle and explain how a fire blanket puts out a fire. (3 marks)", model: "1. The three parts are Heat, Oxygen, and Fuel.\n2. A fire blanket covers the fire completely.\n3. This stops oxygen from getting to the fire, removing one side of the triangle so the fire goes out.", maxMarks: 3 }
         ]
     },
     u2: { 
         id: 'u2', title: "Forces & Space", icon: "ph-rocket-launch", emoji: "🪐", type: "standard",
         match: [
-            {q:"Force", a:"A push, pull, or twist that can change the speed, direction, or shape of an object."},
-                    {q:"Newton (N)", a:"The unit used to measure forces."},
-                    {q:"Friction", a:"A contact force that opposes motion when two surfaces rub together, producing heat."},
-                    {q:"Air Resistance", a:"A type of friction caused by air particles colliding with a moving object."},
-                    {q:"Gravity", a:"A non-contact force of attraction between all objects with mass."},
-                    {q:"Mass", a:"The amount of matter in an object, measured in kilograms (kg). It never changes."},
-                    {q:"Weight", a:"The force of gravity acting on an object's mass, measured in Newtons (N). W = m × g."},
-                    {q:"Resultant Force", a:"The single overall force acting on an object when all individual forces are combined."},
-                    {q:"Equilibrium", a:"When the forces on an object are balanced (resultant force is zero), so it stays still or moves at a steady speed."},
-                    {q:"Speed", a:"How fast an object is moving, calculated by: Speed = Distance ÷ Time."},
-                    {q:"Distance-Time Graph", a:"A graph showing how far an object travels over time. A steep line means fast speed."},
-                    {q:"Solar System", a:"The Sun and all the planets, moons, asteroids, and comets that orbit around it."},
-                    {q:"Galaxy", a:"A massive collection of billions of stars held together by gravity (e.g., the Milky Way)."},
-                    {q:"Orbit", a:"The curved path of a celestial object or spacecraft around a star, planet, or moon."},
-                    {q:"Day and Night", a:"Caused by the Earth rotating on its axis once every 24 hours."},
-                    {q:"Seasons", a:"Caused by the Earth being tilted on its axis as it orbits the Sun over 365 days."}
-                ],
-                mcq: [
-                    { q: "What is the difference between mass and weight?", options: ["Mass is the amount of matter (kg); weight is the force of gravity pulling on that mass (N)", "Mass is measured in Newtons; weight is measured in kilograms", "They are exactly the same thing", "Mass changes on the moon, weight stays the same"], ans: 0 },
-                    { q: "Which tool is used to measure a force?", options: ["A Newton meter (spring balance)", "A thermometer", "A measuring cylinder", "A digital balance (scale)"], ans: 0 },
-                    { q: "If a car is moving forward and the driving force equals the friction force, what happens?", options: ["The car travels at a steady, constant speed", "The car stops immediately", "The car accelerates", "The car moves backwards"], ans: 0 },
-                    { q: "A box is pushed right with 10 N and left with 4 N. What is the resultant force?", options: ["6 N to the right", "14 N to the right", "6 N to the left", "0 N"], ans: 0 },
-                    { q: "Why do we experience day and night on Earth?", options: ["Because the Earth rotates (spins) on its axis once every 24 hours", "Because the Sun goes behind the moon", "Because the Earth orbits the sun once a year", "Because the sun turns off at night"], ans: 0 },
-                    { q: "What causes the seasons (Summer, Winter, etc.) on Earth?", options: ["The Earth's axis is tilted as it orbits the sun, changing how direct the sunlight is", "The Earth gets closer to the sun in summer", "The sun gets hotter in summer", "The moon blocks the sun in winter"], ans: 0 },
-                    { q: "What is our galaxy called?", options: ["The Milky Way", "The Solar System", "Andromeda", "Orion"], ans: 0 },
-                    { q: "What force keeps the Earth in orbit around the Sun?", options: ["Gravity", "Magnetism", "Friction", "Air resistance"], ans: 0 },
-                    { q: "How do you calculate speed?", options: ["Speed = Distance ÷ Time", "Speed = Time ÷ Distance", "Speed = Distance × Time", "Speed = Mass × Gravity"], ans: 0 },
-                    { q: "On a distance-time graph, what does a flat, horizontal line mean?", options: ["The object is stationary (stopped)", "The object is moving at a steady speed", "The object is accelerating rapidly", "The object is going backwards"], ans: 0 },
-                    { q: "If an astronaut goes to the Moon, what happens to their mass and weight?", options: ["Their mass stays the same, but their weight decreases because gravity is weaker", "Both mass and weight decrease", "Mass decreases, weight stays the same", "Both stay exactly the same"], ans: 0 },
-                    { q: "Which of the following is a non-contact force?", options: ["Gravity", "Friction", "Air resistance", "Water resistance"], ans: 0 },
-                    { q: "What is 'terminal velocity' for a falling skydiver?", options: ["The steady speed reached when air resistance equals the downward force of weight", "The speed when they open their parachute", "The fastest they can possibly run", "When gravity stops working"], ans: 0 },
-                    { q: "How long does it take for the Earth to complete one full orbit around the Sun?", options: ["365.25 days (1 year)", "24 hours (1 day)", "28 days (1 month)", "10 years"], ans: 0 },
-                    { q: "Why is it colder in the UK during winter?", options: ["The Northern Hemisphere is tilted away from the sun, so the sun's rays are less direct and days are shorter", "The Earth is furthest away from the sun", "The sun produces less heat", "The moon cools the Earth down"], ans: 0 },
-                    { q: "What happens to the air resistance on a car as it drives faster?", options: ["The air resistance increases", "The air resistance decreases", "The air resistance stays the same", "The air resistance turns into gravity"], ans: 0 },
-                    { q: "Which planet is closest to the Sun?", options: ["Mercury", "Venus", "Earth", "Mars"], ans: 0 },
-                    { q: "What is the formula to calculate Weight?", options: ["Weight = Mass × Gravitational field strength (W = m × g)", "Weight = Mass ÷ Gravity", "Weight = Speed × Time", "Weight = Force × Area"], ans: 0 },
-                    { q: "If an unbalanced (resultant) force acts on an object, what will happen?", options: ["The object will change its speed or direction (it will accelerate/decelerate)", "The object will stay completely still", "The object will move at a constant speed", "The object will turn into a gas"], ans: 0 },
-                    { q: "What is a light-year?", options: ["The distance that light travels in one year (used to measure distances in space)", "The time it takes for light to reach the Earth from the Sun", "A year with a lot of sunshine", "The speed of light"] }
-                ],
-                long: [
-                    { q: "Explain the difference between mass and weight, including their units. (3 marks)", model: "1. Mass is the amount of matter in an object, measured in kilograms (kg).\n2. Weight is the force of gravity acting on an object, measured in Newtons (N).\n3. Mass stays the same everywhere, but weight changes depending on the strength of gravity.", maxMarks: 3 },
-                    { q: "Describe the forces acting on a falling skydiver who has reached terminal velocity. (3 marks)", model: "1. Gravity pulls the skydiver downwards with a force called weight.\n2. Air resistance pushes upwards against the skydiver.\n3. At terminal velocity, these two forces are balanced (equal), so the skydiver falls at a steady speed.", maxMarks: 3 },
-                    { q: "Explain why we experience seasons on Earth. (3 marks)", model: "1. The Earth's axis is tilted at an angle as it orbits the Sun.\n2. When a hemisphere is tilted towards the Sun, it receives more direct sunlight and experiences summer.\n3. When tilted away, it receives less direct sunlight and experiences winter.", maxMarks: 3 }
-                ]
-            },
-            maths: {
-                id: 'maths', title: 'Working Scientifically', icon: 'ph-calculator', emoji: '🧮', type: 'maths',
-                questions: [
-                    { q: 'A runner travels 100 metres in 10 seconds. Calculate their speed in m/s.', a: '10', hint: 'Speed = Distance ÷ Time', working: '100 ÷ 10 = 10 m/s' },
-                    { q: 'A car travels at 20 m/s for 30 seconds. How far does it travel in metres?', a: '600', hint: 'Distance = Speed × Time', working: '20 × 30 = 600 m' },
-                    { q: 'A rock has a mass of 5 kg. The gravitational field strength on Earth is 10 N/kg. Calculate its weight in Newtons.', a: '50', hint: 'Weight = Mass × Gravity (W = m × g)', working: '5 × 10 = 50 N' },
-                    { q: 'A metal block has a mass of 120 g and a volume of 30 cm³. Calculate its density in g/cm³.', a: '4', hint: 'Density = Mass ÷ Volume', working: '120 ÷ 30 = 4 g/cm³' },
-                    { q: 'In an experiment, 3 readings were taken: 12, 15, and 18. Calculate the mean (average).', a: '15', hint: 'Add them all up, then divide by how many there are.', working: '(12 + 15 + 18) = 45\n45 ÷ 3 = 15' },
-                    { q: 'A rocket engine provides an upward thrust of 500 N. The rocket has a weight of 300 N. What is the resultant force?', a: '200', hint: 'Subtract the downward force from the upward force.', working: '500 - 300 = 200 N (Upwards)' },
-                    { q: 'Convert 4.5 kilometres into metres.', a: '4500', hint: '1 km = 1000 m. Multiply by 1000.', working: '4.5 × 1000 = 4500 m' },
-                    { q: 'A student measures 250 millilitres (ml) of water. How many litres (L) is this?', a: '0.25', hint: '1 Litre = 1000 ml. Divide by 1000.', working: '250 ÷ 1000 = 0.25 L' },
-                    { q: 'A train travels 150 km in 2 hours. What is its average speed in km/h?', a: '75', hint: 'Speed = Distance ÷ Time', working: '150 ÷ 2 = 75 km/h' },
-                    { q: 'An astronaut has a mass of 80 kg. Gravity on the Moon is 1.6 N/kg. What is their weight on the Moon in Newtons?', a: '128', hint: 'Weight = mass × gravity', working: '80 × 1.6 = 128 N' },
-                    { q: 'A box has a base area of 2 m² and weighs 100 N. Calculate the pressure it exerts on the floor in N/m².', a: '50', hint: 'Pressure = Force ÷ Area', working: '100 ÷ 2 = 50 N/m²' },
-                    { q: 'If a sound wave takes 3 seconds to bounce back (echo) from a cliff, and sound travels at 340 m/s, how far away is the cliff? (Careful: it went there AND back).', a: '510', hint: 'Find total distance (Speed × Time), then halve it because it is an echo.', working: 'Total distance = 340 × 3 = 1020 m\nDistance to cliff = 1020 ÷ 2 = 510 m' },
-                    { q: 'A lever is 2 metres long. You push down with 30 N of force at the end. Calculate the moment of the force in Nm.', a: '60', hint: 'Moment = Force × Distance from pivot', working: '30 × 2 = 60 Nm' },
-                    { q: 'Four students measure the boiling point of water: 100°C, 99°C, 101°C, and 80°C. The 80°C is anomalous. Calculate the mean of the reliable results.', a: '100', hint: 'Ignore the anomalous result (80). Find the mean of the other three.', working: '(100 + 99 + 101) = 300\n300 ÷ 3 = 100°C' },
-                    { q: 'A car starts at 0 m/s and reaches 20 m/s in 5 seconds. What is its acceleration in m/s²?', a: '4', hint: 'Acceleration = Change in speed ÷ Time', working: '(20 - 0) ÷ 5 = 4 m/s²' }
-                ]
-            }
-        };
+            {q:"Force", a:"A push, pull, or twist that can change the speed or direction of an object."},
+            {q:"Newton (N)", a:"The unit we use to measure forces."},
+            {q:"Friction", a:"A force that slows things down when two surfaces rub together."},
+            {q:"Air Resistance", a:"A type of friction caused by air particles hitting a moving object."},
+            {q:"Gravity", a:"A force that pulls objects downwards towards the centre of the Earth."},
+            {q:"Resultant Force", a:"The overall, single force acting on an object when you add or subtract the individual forces."},
+            {q:"Streamlined", a:"A smooth shape (like a rocket or a fish) designed to reduce air or water resistance."},
+            {q:"Solar System", a:"The Sun and the 8 planets that orbit around it."},
+            {q:"Jupiter", a:"The largest planet in our solar system."},
+            {q:"Orbit", a:"The path a planet or moon takes as it travels around a star or planet."},
+            {q:"Day and Night", a:"Caused by the Earth spinning on its axis once every 24 hours."},
+            {q:"Year", a:"Caused by the Earth completing one full orbit around the Sun every 365 days."},
+            {q:"Seasons", a:"Caused by the Earth being tilted on its axis as it orbits the Sun."},
+            {q:"Light Year", a:"The incredible distance that light can travel in one whole year."},
+            {q:"Speed", a:"How fast something moves. Calculated by dividing Distance by Time."},
+            {q:"Balanced Forces", a:"When forces are equal and opposite, so the object stays still or keeps the same steady speed."}
+        ],
+        mcq: [
+            { q: "What do we use to measure the size of a force?", options: ["A Newton meter", "A thermometer", "A ruler", "A weighing scale"], ans: 0 },
+            { q: "If a car is being pushed forward with 10 N and friction pushes back with 4 N, what is the resultant force?", options: ["6 N forwards", "14 N forwards", "6 N backwards", "0 N"], ans: 0 },
+            { q: "What happens to an object if the forces acting on it are perfectly balanced?", options: ["It will stay still, or keep moving at the exact same steady speed", "It will speed up", "It will slow down and stop", "It will explode"], ans: 0 },
+            { q: "Which of these forces is a 'non-contact' force (it works without touching)?", options: ["Gravity", "Friction", "Air resistance", "Water resistance"], ans: 0 },
+            { q: "Why do we have day and night on Earth?", options: ["Because the Earth rotates (spins) on its axis, so half faces the sun and half faces away", "Because the Sun goes behind the moon", "Because the Earth goes around the Sun", "Because clouds block the sun"], ans: 0 },
+            { q: "What causes the four seasons (Summer, Autumn, Winter, Spring)?", options: ["The Earth is tilted on its axis; sometimes we are tilted towards the sun, sometimes away", "The Earth gets closer to the Sun in the summer", "The Sun turns down its heat in the winter", "The moon gets in the way of the light"], ans: 0 },
+            { q: "What is the correct order of the first four planets from the Sun?", options: ["Mercury, Venus, Earth, Mars", "Venus, Earth, Mars, Jupiter", "Earth, Mars, Venus, Mercury", "Mars, Jupiter, Saturn, Uranus"], ans: 0 },
+            { q: "How long does it take for the Earth to orbit the Sun exactly once?", options: ["365 and a quarter days (1 Year)", "24 hours (1 Day)", "28 days (1 Month)", "10 years"], ans: 0 },
+            { q: "Why do rockets and sports cars have a smooth, pointy shape?", options: ["To make them streamlined, which reduces air resistance so they can go faster", "To make them heavier", "To increase friction", "Because it looks nice"], ans: 0 },
+            { q: "What is a 'Light Year'?", options: ["A measure of very long DISTANCE in space (how far light travels in a year)", "A measure of TIME (how long it takes light to reach us)", "A year with a lot of sunshine", "The speed of light"], ans: 0 },
+            { q: "If an astronaut drops a hammer on the moon, why does it fall slower than on Earth?", options: ["Because the Moon is smaller than Earth, so its gravity is weaker", "Because there is more air resistance on the moon", "Because the hammer loses mass", "Because space has zero gravity everywhere"], ans: 0 },
+            { q: "What force slows down a bicycle when you squeeze the brakes?", options: ["Friction between the brake pads and the wheel", "Gravity pulling the bike down", "Air resistance on your body", "Magnetism"], ans: 0 },
+            { q: "Which planet is famous for having large, visible rings made of ice and rock?", options: ["Saturn", "Jupiter", "Mars", "Neptune"], ans: 0 },
+            { q: "How do you calculate the speed of an object?", options: ["Distance divided by Time", "Time divided by Distance", "Distance multiplied by Time", "Force divided by Mass"], ans: 0 },
+            { q: "If the Earth was not tilted on its axis, what would happen?", options: ["We would not have different seasons; the weather would stay mostly the same all year", "We would have no gravity", "We would have no day and night", "The Earth would float away"], ans: 0 },
+            { q: "What is the name of our galaxy?", options: ["The Milky Way", "The Solar System", "Andromeda", "The Universe"], ans: 0 },
+            { q: "When a skydiver opens their parachute, what happens?", options: ["Air resistance increases massively, slowing them down safely", "Gravity turns off", "Gravity gets stronger", "Friction with the clouds stops them"], ans: 0 },
+            { q: "What provides the huge upward force (thrust) for a rocket to launch into space?", options: ["Burning fuel which shoots hot gases downwards out of the engine", "Giant springs on the launch pad", "Wind blowing upwards", "Magnets repelling the Earth"], ans: 0 },
+            { q: "Which of these planets is a 'Gas Giant'?", options: ["Jupiter", "Earth", "Mars", "Mercury"], ans: 0 },
+            { q: "What happens to your mass (how much 'stuff' you are made of) if you go to Mars?", options: ["It stays exactly the same; only your weight (the pull of gravity) changes", "Your mass decreases", "Your mass increases", "You become weightless"] }
+        ],
+        long: [
+            { q: "Explain why we have day and night on Earth. (3 marks)", model: "1. The Earth spins (rotates) on its own axis.\n2. It takes 24 hours to complete one full spin.\n3. The side of the Earth facing the Sun experiences day, and the side facing away in the shadow experiences night.", maxMarks: 3 },
+            { q: "Explain why it is colder in the winter than in the summer in the UK. (3 marks)", model: "1. The Earth's axis is tilted.\n2. In winter, the UK (Northern Hemisphere) is tilted away from the Sun.\n3. This means the Sun's rays are less direct and the days are shorter, so we get less heat.", maxMarks: 3 },
+            { q: "Describe how you would design a rocket to make it travel as fast as possible through the air. (3 marks)", model: "1. Give it a smooth, pointy shape to make it streamlined.\n2. This reduces air resistance (friction with the air) slowing it down.\n3. Give it a very powerful engine to create a large upward thrust force.", maxMarks: 3 }
+        ]
+    },
+    maths: {
+        id: 'maths', title: 'Working Scientifically', icon: 'ph-calculator', emoji: '🧮', type: 'maths',
+        questions: [
+            { q: 'A runner travels 100 metres in 10 seconds. Calculate their speed in m/s.', a: '10', hint: 'Speed = Distance ÷ Time', working: '100 ÷ 10 = 10 m/s' },
+            { q: 'A car travels at 20 m/s for 30 seconds. How far does it travel in metres?', a: '600', hint: 'Distance = Speed × Time', working: '20 × 30 = 600 m' },
+            { q: 'A box is pushed to the right with 50 N and to the left with 20 N. What is the resultant force?', a: '30', hint: 'Subtract the smaller force from the bigger force.', working: '50 - 20 = 30 N' },
+            { q: 'A metal block has a mass of 120 g and a volume of 30 cm³. Calculate its density in g/cm³.', a: '4', hint: 'Density = Mass ÷ Volume', working: '120 ÷ 30 = 4 g/cm³' },
+            { q: 'In an experiment, 3 readings were taken: 12, 15, and 18. Calculate the mean (average).', a: '15', hint: 'Add them all up, then divide by how many there are.', working: '(12 + 15 + 18) = 45\n45 ÷ 3 = 15' },
+            { q: 'A rocket engine provides an upward thrust of 500 N. The rocket has a weight of 300 N pulling down. What is the overall upward force?', a: '200', hint: 'Subtract the downward force from the upward force.', working: '500 - 300 = 200 N (Upwards)' },
+            { q: 'Convert 4.5 kilometres into metres.', a: '4500', hint: '1 km = 1000 m. Multiply by 1000.', working: '4.5 × 1000 = 4500 m' },
+            { q: 'A student measures 250 millilitres (ml) of water. How many litres (L) is this?', a: '0.25', hint: '1 Litre = 1000 ml. Divide by 1000.', working: '250 ÷ 1000 = 0.25 L' },
+            { q: 'A train travels 150 km in 2 hours. What is its average speed in km/h?', a: '75', hint: 'Speed = Distance ÷ Time', working: '150 ÷ 2 = 75 km/h' },
+            { q: 'A block of wood is 2cm high, 3cm wide and 4cm long. What is its volume in cm³?', a: '24', hint: 'Volume = length × width × height', working: '2 × 3 × 4 = 24 cm³' },
+            { q: 'Four students measure the boiling point of water: 100°C, 99°C, 101°C, and 40°C. The 40°C is an error. Calculate the mean of the good results.', a: '100', hint: 'Ignore the bad result (40). Find the mean of the other three.', working: '(100 + 99 + 101) = 300\n300 ÷ 3 = 100°C' },
+            { q: 'A cyclist travels 12 km in 1 hour. How far will they travel in 3 hours at the same speed?', a: '36', hint: 'Multiply the distance for 1 hour by 3.', working: '12 × 3 = 36 km' },
+            { q: 'If Earth is 150 million km from the Sun, and Mars is 225 million km from the Sun, how far apart are they when they line up?', a: '75', hint: 'Subtract the Earth distance from the Mars distance.', working: '225 - 150 = 75 million km' },
+            { q: 'A stone has a mass of 50g. When dropped in a measuring cylinder, the water level goes up by 10 cm³. What is the density?', a: '5', hint: 'Density = Mass ÷ Volume', working: '50 ÷ 10 = 5 g/cm³' },
+            { q: 'A parachute has an upward air resistance of 800 N. The skydiver weighs 800 N. What is the resultant force?', a: '0', hint: 'Subtract the forces. They are the same!', working: '800 - 800 = 0 N (Forces are balanced)' }
+        ]
+    }
+};
 
         const TAB_ORDER = ['u1', 'u2', 'maths'];
 
