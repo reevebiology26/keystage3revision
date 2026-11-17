@@ -90,66 +90,66 @@
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen overflow-hidden" id="main-body">
+<body class="flex flex-col h-screen overflow-hidden" id="main-body">
 
     <!-- LOCKED IN OVERLAY -->
     <div id="locked-in-overlay" class="fixed inset-0 bg-slate-900/95 z-[100] hidden items-center justify-center flex-col text-center backdrop-blur-md">
         <div id="locked-in-content" class="scale-0 opacity-0 transition-all duration-500">
-            <i class="ph-duotone ph-rocket-launch text-[10rem] text-violet-400 mb-4 drop-shadow-[0_0_30px_rgba(139,92,246,0.8)]"></i>
-            <h1 class="font-heading text-5xl md:text-7xl text-white tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">LOCKED IN!</h1>
-            <p class="text-violet-400 mt-4 text-xl md:text-2xl font-bold tracking-widest uppercase">Science Mastery Achieved</p>
+            <i class="ph-duotone ph-rocket-launch text-[8rem] text-violet-400 mb-3 drop-shadow-[0_0_30px_rgba(139,92,246,0.8)]"></i>
+            <h1 class="font-heading text-5xl md:text-6xl text-white tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]">LOCKED IN!</h1>
+            <p class="text-violet-400 mt-3 text-lg md:text-xl font-bold tracking-widest uppercase">Science Mastery Achieved</p>
         </div>
     </div>
 
     <!-- SPLASH SCREEN -->
-    <div id="splash-screen" class="fixed inset-0 z-50 splash-bg flex flex-col items-center justify-center transition-opacity duration-700 p-4 overflow-y-auto">
-        <div class="text-center flex flex-col items-center w-full max-w-4xl py-10">
-            <div class="flex gap-4 mb-4">
-                <div class="bg-blue-100 p-4 rounded-2xl shadow-sm transform -rotate-12"><i class="ph-duotone ph-drop text-5xl text-blue-500"></i></div>
-                <div class="bg-violet-100 p-4 rounded-2xl shadow-sm transform rotate-12"><i class="ph-duotone ph-planet text-5xl text-violet-500"></i></div>
+    <div id="splash-screen" class="fixed inset-0 z-50 splash-bg flex flex-col items-center justify-center transition-opacity duration-700 p-3 sm:p-4 overflow-hidden">
+        <div class="text-center flex flex-col items-center justify-center w-full max-w-4xl h-full max-h-screen py-2">
+            <div class="flex gap-3 mb-2">
+                <div class="bg-blue-100 p-2.5 sm:p-3 rounded-xl shadow-sm transform -rotate-12"><i class="ph-duotone ph-drop text-3xl sm:text-4xl text-blue-500"></i></div>
+                <div class="bg-violet-100 p-2.5 sm:p-3 rounded-xl shadow-sm transform rotate-12"><i class="ph-duotone ph-planet text-3xl sm:text-4xl text-violet-500"></i></div>
             </div>
-            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-slate-800 tracking-tight mb-2 leading-tight drop-shadow-sm">
+            <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-slate-800 tracking-tight mb-1 leading-tight drop-shadow-sm">
                 KS3 Science <span class="text-violet-600">Masterclass</span>
             </h1>
-            <p class="text-violet-700 text-xs sm:text-sm font-bold tracking-widest uppercase mb-10 bg-violet-200/50 px-4 py-1.5 rounded-full border border-violet-300 shadow-sm">Created by Mr Reeve | Year 7 Revision</p>
+            <p class="text-violet-700 text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-4 sm:mb-6 bg-violet-200/50 px-3.5 py-1 rounded-full border border-violet-300 shadow-sm">Created by Mr Reeve | Year 7 Revision</p>
             
-            <div class="w-full text-left px-2 max-w-3xl mx-auto space-y-8">
+            <div class="w-full text-left px-2 max-w-3xl mx-auto space-y-4 sm:space-y-5">
                 <div>
-                    <div class="flex items-center gap-2 mb-4"><i class="ph-bold ph-atom text-blue-500 text-xl"></i> <h2 class="text-lg sm:text-xl font-bold text-slate-700 border-b-2 border-blue-200 flex-grow pb-1">Core Units</h2></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <button onclick="openUnit('u1')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
-                            <div class="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors"><i class="ph-duotone ph-snowman text-4xl text-blue-500"></i></div>
+                    <div class="flex items-center gap-2 mb-2"><i class="ph-bold ph-atom text-blue-500 text-lg"></i> <h2 class="text-base sm:text-lg font-bold text-slate-700 border-b-2 border-blue-200 flex-grow pb-0.5">Core Units</h2></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button onclick="openUnit('u1')" class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-blue-400 hover:shadow-md transition-all transform hover:-translate-y-0.5 flex items-center text-left gap-3.5 group">
+                            <div class="bg-blue-50 p-3 rounded-xl group-hover:bg-blue-100 transition-colors shrink-0"><i class="ph-duotone ph-snowman text-3xl text-blue-500"></i></div>
                             <div>
-                                <h3 class="font-heading font-bold text-slate-800 text-xl">Matter & Mixtures</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Particles, separating techniques, fire & water.</p>
+                                <h3 class="font-heading font-bold text-slate-800 text-lg leading-tight">Matter & Mixtures</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Particles, separating techniques, fire & water.</p>
                             </div>
                         </button>
-                        <button onclick="openUnit('u2')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group">
-                            <div class="bg-violet-50 p-4 rounded-xl group-hover:bg-violet-100 transition-colors"><i class="ph-duotone ph-rocket-launch text-4xl text-violet-500"></i></div>
+                        <button onclick="openUnit('u2')" class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-violet-400 hover:shadow-md transition-all transform hover:-translate-y-0.5 flex items-center text-left gap-3.5 group">
+                            <div class="bg-violet-50 p-3 rounded-xl group-hover:bg-violet-100 transition-colors shrink-0"><i class="ph-duotone ph-rocket-launch text-3xl text-violet-500"></i></div>
                             <div>
-                                <h3 class="font-heading font-bold text-slate-800 text-xl">Forces & Space</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Push/pulls, rockets, planets, seasons & years.</p>
+                                <h3 class="font-heading font-bold text-slate-800 text-lg leading-tight">Forces & Space</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Push/pulls, rockets, planets, seasons & years.</p>
                             </div>
                         </button>
                     </div>
                 </div>
                 
                 <div>
-                    <div class="flex items-center gap-2 mb-4"><i class="ph-bold ph-ruler text-amber-500 text-xl"></i> <h2 class="text-lg sm:text-xl font-bold text-slate-700 border-b-2 border-amber-200 flex-grow pb-1">Skills</h2></div>
-                    <div class="grid grid-cols-1 gap-4">
-                        <button onclick="openUnit('maths')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all transform hover:-translate-y-1 flex items-center text-left gap-4 group w-full sm:w-1/2 mx-auto">
-                            <div class="bg-amber-50 p-4 rounded-xl group-hover:bg-amber-100 transition-colors"><i class="ph-duotone ph-calculator text-4xl text-amber-500"></i></div>
+                    <div class="flex items-center gap-2 mb-2"><i class="ph-bold ph-ruler text-amber-500 text-lg"></i> <h2 class="text-base sm:text-lg font-bold text-slate-700 border-b-2 border-amber-200 flex-grow pb-0.5">Skills</h2></div>
+                    <div class="grid grid-cols-1 gap-3">
+                        <button onclick="openUnit('maths')" class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all transform hover:-translate-y-0.5 flex items-center text-left gap-3.5 group w-full sm:w-1/2 mx-auto">
+                            <div class="bg-amber-50 p-3 rounded-xl group-hover:bg-amber-100 transition-colors shrink-0"><i class="ph-duotone ph-calculator text-3xl text-amber-500"></i></div>
                             <div>
-                                <h3 class="font-heading font-bold text-slate-800 text-xl">Working Scientifically</h3>
-                                <p class="text-sm text-slate-500 font-medium mt-1">Simple speed, density & data calculations.</p>
+                                <h3 class="font-heading font-bold text-slate-800 text-lg leading-tight">Working Scientifically</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Simple speed, density & data calculations.</p>
                             </div>
                         </button>
                     </div>
                 </div>
 
-                <div class="mt-8 pt-8 border-t border-slate-200 w-full flex justify-center">
-                    <button onclick="handleOverallReportClick()" class="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest py-4 px-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-1 text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
-                        <i class="ph-bold ph-printer text-2xl"></i> Generate Score Card For All
+                <div class="pt-3 border-t border-slate-200 w-full flex justify-center">
+                    <button onclick="handleOverallReportClick()" class="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest py-3 px-6 rounded-xl shadow-md transition-transform transform hover:-translate-y-0.5 text-sm sm:text-base flex items-center gap-2.5 w-full sm:w-auto justify-center">
+                        <i class="ph-bold ph-printer text-xl"></i> Generate Score Card For All
                     </button>
                 </div>
             </div>
@@ -157,24 +157,24 @@
     </div>
 
     <!-- HEADER & NAV -->
-    <header class="bg-white shadow-sm z-10 sticky top-0 border-b border-slate-200 hidden" id="app-header">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-3 w-full sm:w-auto">
-                <button onclick="returnToMenu()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors shrink-0 flex items-center gap-2 font-bold shadow-sm border border-slate-200">
-                    <i class="ph-bold ph-house text-xl"></i> <span class="hidden sm:inline">Home</span>
+    <header class="bg-white shadow-sm z-10 shrink-0 border-b border-slate-200 hidden" id="app-header">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <button onclick="returnToMenu()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors shrink-0 flex items-center gap-1.5 font-bold text-sm shadow-sm border border-slate-200">
+                    <i class="ph-bold ph-house text-lg"></i> <span class="hidden sm:inline">Home</span>
                 </button>
-                <div id="header-icon-container" class="bg-violet-100 p-2 rounded-lg shrink-0"><i id="header-icon" class="ph-bold ph-planet text-2xl text-violet-600"></i></div>
+                <div id="header-icon-container" class="bg-violet-100 p-1.5 rounded-lg shrink-0"><i id="header-icon" class="ph-bold ph-planet text-xl text-violet-600"></i></div>
                 <div class="truncate">
-                    <h1 id="header-unit-title" class="font-heading text-xl font-bold text-slate-800 leading-none truncate">Unit Title</h1>
-                    <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider truncate">KS3 Science Masterclass</p>
+                    <h1 id="header-unit-title" class="font-heading text-lg font-bold text-slate-800 leading-none truncate">Unit Title</h1>
+                    <p class="text-slate-500 text-[10px] font-semibold uppercase tracking-wider truncate mt-0.5">KS3 Science Masterclass</p>
                 </div>
             </div>
             
             <!-- Dynamic Streak Counter -->
-            <div id="streak-banner" class="bg-slate-100 text-slate-700 font-bold px-4 py-1.5 rounded-full border border-slate-200 shadow-sm flex items-center gap-2 shrink-0 transition-all duration-300">
-                <span id="streak-emoji" class="text-2xl -my-2 drop-shadow-sm transition-transform duration-300">🔥</span>
-                <span class="text-sm tracking-wide uppercase font-semibold text-slate-500">Streak:</span>
-                <span id="streak-counter" class="text-xl font-black text-violet-600">0</span>
+            <div id="streak-banner" class="bg-slate-100 text-slate-700 font-bold px-3 py-1 rounded-full border border-slate-200 shadow-sm flex items-center gap-1.5 shrink-0 transition-all duration-300">
+                <span id="streak-emoji" class="text-lg -my-1 drop-shadow-sm transition-transform duration-300">🔥</span>
+                <span class="text-xs tracking-wide uppercase font-semibold text-slate-500">Streak:</span>
+                <span id="streak-counter" class="text-base font-black text-violet-600">0</span>
             </div>
         </div>
         
@@ -187,140 +187,147 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow max-w-5xl mx-auto w-full p-4 sm:p-6 pb-32 hidden relative" id="main-content">
+    <main class="flex-1 min-h-0 max-w-6xl mx-auto w-full px-3 sm:px-5 py-2.5 sm:py-3 hidden relative overflow-hidden flex flex-col justify-center" id="main-content">
         
         <!-- 1. Mix & Match -->
-        <div id="tab-match" class="activity-content animate-fade-in">
-            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div id="tab-match" class="activity-content animate-fade-in h-full max-h-full">
+            <div class="bg-white p-3.5 sm:p-5 rounded-2xl shadow-sm border border-slate-200 h-full flex flex-col justify-between overflow-hidden">
+                <div class="mb-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5 shrink-0">
                     <div>
-                        <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500"></i> Terminology Match <span class="text-sm font-bold text-violet-600 bg-violet-50 px-2 py-1 rounded border border-violet-200 ml-2">Round <span id="match-batch-label">1</span> of 2</span></h3>
-                        <p class="text-slate-500 text-sm mt-1">Tap a keyword, then tap its correct definition.</p>
+                        <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500"></i> Terminology Match <span class="text-xs font-bold text-violet-600 bg-violet-50 px-2 py-0.5 rounded border border-violet-200 ml-1">Round <span id="match-batch-label">1</span> of 2</span></h3>
+                        <p class="text-slate-500 text-xs mt-0.5">Tap a keyword, then tap its correct definition.</p>
                     </div>
-                    <span class="text-sm font-bold bg-violet-100 text-violet-700 px-4 py-2 rounded-full shrink-0 flex items-center gap-2">
+                    <span class="text-xs font-bold bg-violet-100 text-violet-700 px-3 py-1.5 rounded-full shrink-0 flex items-center gap-2 self-start sm:self-auto">
                         <span><span id="match-score">0</span> / <span id="match-total">16</span> Matched</span>
-                        <button onclick="resetMatch()" class="bg-violet-200 hover:bg-violet-300 p-1.5 rounded-md transition-colors shadow-sm ml-2" title="Reset"><i class="ph-bold ph-arrows-clockwise text-violet-800"></i></button>
+                        <button onclick="resetMatch()" class="bg-violet-200 hover:bg-violet-300 p-1 rounded-md transition-colors shadow-sm ml-1" title="Reset"><i class="ph-bold ph-arrows-clockwise text-violet-800"></i></button>
                     </span>
                 </div>
-                <div id="match-complete" class="hidden bg-violet-50 border-2 border-violet-500 text-violet-700 p-8 rounded-xl text-center mb-6 shadow-sm">
-                    <i class="ph-fill ph-check-circle text-5xl mb-2"></i>
-                    <h4 class="font-heading text-2xl font-bold">Brilliant!</h4>
-                    <p class="font-medium">You know your science vocabulary inside out.</p>
+                <div id="match-complete" class="hidden bg-violet-50 border-2 border-violet-500 text-violet-700 p-6 rounded-xl text-center my-auto shadow-sm">
+                    <i class="ph-fill ph-check-circle text-4xl mb-1.5"></i>
+                    <h4 class="font-heading text-xl font-bold">Brilliant!</h4>
+                    <p class="font-medium text-sm">You know your science vocabulary inside out.</p>
                 </div>
-                <div id="match-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-3" id="match-questions"></div>
-                    <div class="space-y-3" id="match-answers"></div>
+                <div id="match-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 flex-1 min-h-0 overflow-hidden">
+                    <div class="flex flex-col justify-between gap-1.5 h-full" id="match-questions"></div>
+                    <div class="flex flex-col justify-between gap-1.5 h-full" id="match-answers"></div>
                 </div>
             </div>
         </div>
 
         <!-- 2. MCQ Engine -->
-        <div id="tab-mcq" class="activity-content animate-fade-in">
-            <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-700 text-white max-w-3xl mx-auto">
-                <div class="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-700 pb-4">
+        <div id="tab-mcq" class="activity-content animate-fade-in h-full max-h-full">
+            <div class="bg-slate-800 p-4 sm:p-6 rounded-2xl shadow-lg border border-slate-700 text-white max-w-3xl mx-auto h-full flex flex-col justify-center overflow-hidden">
+                <div class="mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-700 pb-3 shrink-0">
                     <div>
-                        <h3 class="font-heading text-2xl font-bold flex items-center gap-2"><i class="ph-fill ph-question text-blue-400"></i> Quick Quiz</h3>
-                        <p class="text-slate-400 text-sm mt-1" id="mcq-subtitle">Incorrect answers will loop back at the end.</p>
+                        <h3 class="font-heading text-xl font-bold flex items-center gap-2"><i class="ph-fill ph-question text-blue-400"></i> Quick Quiz</h3>
+                        <p class="text-slate-400 text-xs mt-0.5" id="mcq-subtitle">Incorrect answers will loop back at the end.</p>
                     </div>
                     <div class="text-left sm:text-right shrink-0">
-                        <div class="text-xs text-slate-400 font-bold uppercase tracking-wider">Progress</div>
-                        <div class="text-3xl font-black text-blue-400 mt-1" id="mcq-progress">0 / 0</div>
+                        <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Progress</div>
+                        <div class="text-2xl font-black text-blue-400 leading-none mt-0.5" id="mcq-progress">0 / 0</div>
                     </div>
                 </div>
                 
-                <div id="mcq-complete" class="hidden text-center py-10">
-                    <i class="ph-duotone ph-trophy text-7xl text-amber-400 mb-4 animate-bounce"></i>
-                    <h4 class="font-heading text-3xl font-bold text-white mb-2">100% Correct</h4>
-                    <p class="text-slate-300">Great job completing the quiz.</p>
+                <div id="mcq-complete" class="hidden text-center py-6 my-auto">
+                    <i class="ph-duotone ph-trophy text-6xl text-amber-400 mb-3 animate-bounce"></i>
+                    <h4 class="font-heading text-2xl font-bold text-white mb-1.5">100% Correct</h4>
+                    <p class="text-slate-300 text-sm">Great job completing the quiz.</p>
                 </div>
                 
                 <!-- RETRY SCREEN -->
-                <div id="mcq-retry-screen" class="hidden text-center py-10">
-                    <i class="ph-duotone ph-arrow-counter-clockwise text-7xl text-amber-400 mb-4"></i>
-                    <h4 class="font-heading text-3xl font-bold text-white mb-2">Try Again</h4>
-                    <p class="text-slate-300 mb-6">You have <span id="mcq-retry-count" class="font-bold text-white text-xl">0</span> questions to review.</p>
-                    <button onclick="startMCQRetry()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-colors inline-flex items-center gap-2">
-                        <i class="ph-bold ph-arrows-clockwise text-xl"></i> Retry Questions
+                <div id="mcq-retry-screen" class="hidden text-center py-6 my-auto">
+                    <i class="ph-duotone ph-arrow-counter-clockwise text-6xl text-amber-400 mb-3"></i>
+                    <h4 class="font-heading text-2xl font-bold text-white mb-1.5">Try Again</h4>
+                    <p class="text-slate-300 text-sm mb-5">You have <span id="mcq-retry-count" class="font-bold text-white text-lg">0</span> questions to review.</p>
+                    <button onclick="startMCQRetry()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-6 rounded-xl shadow-md transition-colors inline-flex items-center gap-2 text-sm">
+                        <i class="ph-bold ph-arrows-clockwise text-lg"></i> Retry Questions
                     </button>
                 </div>
                 
-                <div id="mcq-container">
-                    <h4 class="text-lg sm:text-xl font-medium mb-8 leading-relaxed text-slate-100" id="mcq-question">Loading...</h4>
-                    <div class="space-y-4" id="mcq-options"></div>
+                <div id="mcq-container" class="flex-1 flex flex-col justify-center min-h-0">
+                    <h4 class="text-base sm:text-lg font-medium mb-4 leading-snug text-slate-100" id="mcq-question">Loading...</h4>
+                    <div class="space-y-2.5" id="mcq-options"></div>
                 </div>
             </div>
         </div>
 
         <!-- 3. Long Answers -->
-        <div id="tab-long" class="activity-content animate-fade-in">
-            <div class="mb-6 border-b border-slate-200 pb-4">
-                <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500"></i> Extended Answers</h3>
-                <p class="text-slate-500 text-sm mt-1">Type your answer, then check it against the model answer and give yourself a score out of 3.</p>
+        <div id="tab-long" class="activity-content animate-fade-in h-full max-h-full">
+            <div class="h-full flex flex-col justify-between max-w-4xl mx-auto overflow-hidden">
+                <div class="mb-2.5 border-b border-slate-200 pb-2 shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                    <div>
+                        <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500"></i> Extended Answers</h3>
+                        <p class="text-slate-500 text-xs">Type your answer, compare with the model answer, and self-mark out of 3.</p>
+                    </div>
+                </div>
+                <div id="long-list" class="flex-1 min-h-0 flex flex-col justify-center overflow-hidden"></div>
             </div>
-            <div id="long-list" class="space-y-8"></div>
         </div>
 
         <!-- 4. Maths Skills -->
-        <div id="tab-maths" class="activity-content animate-fade-in">
-            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 max-w-4xl mx-auto">
-                <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+        <div id="tab-maths" class="activity-content animate-fade-in h-full max-h-full">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 max-w-4xl mx-auto h-full flex flex-col justify-between overflow-hidden">
+                <div class="mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5 shrink-0">
                     <div>
-                        <h3 class="font-heading text-2xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500"></i> Working Scientifically</h3>
-                        <p class="text-slate-500 text-sm mt-1">Calculate the answers. Type numbers only.</p>
+                        <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-800 flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500"></i> Working Scientifically</h3>
+                        <p class="text-slate-500 text-xs mt-0.5">Calculate the answers. Type numbers only.</p>
                     </div>
-                    <div class="text-3xl font-black text-blue-600 bg-blue-50 px-5 py-2 rounded-xl border border-blue-200 shrink-0"><span id="maths-score">0</span> / 15</div>
+                    <div class="flex items-center gap-3 self-start sm:self-auto">
+                        <span id="maths-q-counter" class="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">Question 1 of 15</span>
+                        <div class="text-lg sm:text-xl font-black text-blue-600 bg-blue-50 px-3.5 py-1 rounded-xl border border-blue-200 shrink-0"><span id="maths-score">0</span> / 15</div>
+                    </div>
                 </div>
-                <div id="maths-list" class="space-y-6"></div>
+                <div id="maths-list" class="flex-1 min-h-0 flex flex-col justify-center overflow-hidden"></div>
             </div>
         </div>
 
         <!-- 5. Dashboard / Report Gen -->
-        <div id="tab-report" class="activity-content animate-fade-in">
-            <div class="max-w-3xl mx-auto bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
-                    <i id="dash-bg-icon" class="ph-fill ph-medal text-[15rem]"></i>
+        <div id="tab-report" class="activity-content animate-fade-in h-full max-h-full">
+            <div class="max-w-3xl mx-auto bg-white p-5 sm:p-6 rounded-2xl shadow-xl border border-slate-200 relative overflow-hidden h-full flex flex-col justify-between">
+                <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <i id="dash-bg-icon" class="ph-fill ph-medal text-[12rem]"></i>
                 </div>
                 
-                <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-slate-100 pb-8 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-4 relative z-10 shrink-0">
                     <div class="text-center md:text-left">
-                        <h3 class="font-heading text-3xl font-bold text-slate-800 mb-2">Your Progress</h3>
-                        <div class="text-6xl font-black text-violet-600" id="dash-percentage">0%</div>
-                        <p class="text-slate-500 font-medium mt-2 max-w-sm" id="dash-feedback">Complete activities to increase your score.</p>
+                        <h3 class="font-heading text-2xl font-bold text-slate-800">Your Progress</h3>
+                        <div class="text-5xl font-black text-violet-600 mt-1" id="dash-percentage">0%</div>
+                        <p class="text-slate-500 text-xs sm:text-sm font-medium mt-1 max-w-sm" id="dash-feedback">Complete activities to increase your score.</p>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 relative z-10" id="dash-standard-stats">
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
-                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500 text-lg"></i> Terminology</div>
-                        <div class="mt-3 flex items-end justify-between">
-                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-match">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-match">/ 16</span></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-auto relative z-10" id="dash-standard-stats">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div class="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-arrows-merge text-violet-500 text-base"></i> Terminology</div>
+                        <div class="mt-2 flex items-end justify-between">
+                            <div class="text-3xl font-black text-slate-800"><span id="dash-score-match">0</span> <span class="text-lg text-slate-400 font-medium" id="dash-total-match">/ 16</span></div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
-                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-question text-blue-500 text-lg"></i> Quiz</div>
-                        <div class="mt-3 flex items-end justify-between">
-                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-mcq">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-mcq">/ 20</span></div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <div class="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-question text-blue-500 text-base"></i> Quiz</div>
+                        <div class="mt-2 flex items-end justify-between">
+                            <div class="text-3xl font-black text-slate-800"><span id="dash-score-mcq">0</span> <span class="text-lg text-slate-400 font-medium" id="dash-total-mcq">/ 20</span></div>
                         </div>
                     </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between sm:col-span-2">
-                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500 text-lg"></i> Extended Answers</div>
-                        <div class="mt-3 flex items-end justify-between">
-                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-long">0</span> <span class="text-xl text-slate-400 font-medium" id="dash-total-long">/ 9</span></div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between sm:col-span-2">
+                        <div class="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-pencil-line text-amber-500 text-base"></i> Extended Answers</div>
+                        <div class="mt-2 flex items-end justify-between">
+                            <div class="text-3xl font-black text-slate-800"><span id="dash-score-long">0</span> <span class="text-lg text-slate-400 font-medium" id="dash-total-long">/ 9</span></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="grid grid-cols-1 gap-4 mb-10 relative z-10 hidden" id="dash-maths-stats">
+                <div class="grid grid-cols-1 gap-3 my-auto relative z-10 hidden" id="dash-maths-stats">
                     <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between">
-                        <div class="text-sm font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500 text-lg"></i> Calculations Completed</div>
-                        <div class="mt-3 flex items-end justify-between">
-                            <div class="text-4xl font-black text-slate-800"><span id="dash-score-maths">0</span> <span class="text-xl text-slate-400 font-medium">/ 15</span></div>
+                        <div class="text-xs font-bold text-slate-500 uppercase flex items-center gap-2"><i class="ph-fill ph-calculator text-blue-500 text-base"></i> Calculations Completed</div>
+                        <div class="mt-2 flex items-end justify-between">
+                            <div class="text-3xl font-black text-slate-800"><span id="dash-score-maths">0</span> <span class="text-lg text-slate-400 font-medium">/ 15</span></div>
                         </div>
                     </div>
                 </div>
 
-                <button onclick="handleReportClick()" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold uppercase tracking-widest py-4 rounded-xl shadow-lg transition-transform transform hover:-translate-y-1 text-lg flex justify-center items-center gap-3 relative z-10">
-                    <i class="ph-bold ph-printer text-2xl"></i> Generate Scorecard
+                <button onclick="handleReportClick()" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold uppercase tracking-widest py-3 rounded-xl shadow-lg transition-transform transform hover:-translate-y-0.5 text-base flex justify-center items-center gap-2.5 relative z-10 shrink-0">
+                    <i class="ph-bold ph-printer text-xl"></i> Generate Scorecard
                 </button>
             </div>
         </div>
@@ -432,102 +439,102 @@
                     {q:"Insoluble", a:"A substance that will not dissolve in a liquid (e.g., sand in water)."}
                 ],
                 mcq: [
-                    { q: "Which state of matter cannot be squashed (compressed) and keeps its own shape?", options: ["Solid", "Gas", "Liquid", "Air"], ans: 0 },
-                    { q: "What happens to the particles in an ice cube when it melts?", options: ["They gain heat energy and break away from their neat pattern to move past each other", "They lose energy and stop moving entirely", "They turn into a gas and float away", "The particles themselves get bigger"], ans: 0 },
-                    { q: "Why is it easy to squash a balloon filled with gas?", options: ["Because there are large empty spaces between the gas particles", "Because the particles are very soft", "Because gas particles are wet", "Because gas particles have no mass"], ans: 0 },
-                    { q: "Which piece of equipment is essential for filtration?", options: ["Filter paper and a funnel", "A thermometer", "A Bunsen burner", "A magnet"], ans: 0 },
-                    { q: "If you have a mixture of sand and salty water, how do you get the sand out?", options: ["Pour it through filter paper; the sand gets trapped and the salty water goes through", "Boil it until the sand evaporates", "Use a magnet to pull the sand out", "Freeze it"], ans: 0 },
-                    { q: "After filtering, how can you get the pure water back from the salty water?", options: ["Use distillation: boil the water into steam, then cool it down so it condenses back to pure liquid", "Use chromatography paper", "Filter it a second time", "Add chlorine to it"], ans: 0 },
-                    { q: "In chromatography, why do different colours in ink separate?", options: ["Because some dyes dissolve better and travel faster up the paper than others", "Because the paper is magic", "Because the ink gets too hot", "Because the water washes them away completely"], ans: 0 },
-                    { q: "When you stir sugar into tea, the sugar is the...", options: ["Solute", "Solvent", "Solution", "Insoluble solid"], ans: 0 },
-                    { q: "Which of the following is an example of an insoluble substance?", options: ["Sand in water", "Salt in water", "Sugar in tea", "Coffee granules in hot water"], ans: 0 },
-                    { q: "What are the three sides of the Fire Triangle?", options: ["Heat, Oxygen, and Fuel", "Wood, Matches, and Air", "Water, Earth, and Fire", "Carbon dioxide, Heat, and Light"], ans: 0 },
-                    { q: "How does a fire blanket put out a chip pan fire?", options: ["It cuts off the oxygen supply (removes one side of the fire triangle)", "It cools the fire down instantly", "It removes the fuel", "It creates wind to blow it out"], ans: 0 },
-                    { q: "Why do we add chlorine to drinking water at a water treatment plant?", options: ["To kill dangerous bacteria and microorganisms", "To make it taste sweet", "To turn it blue", "To filter out large pieces of rubbish"], ans: 0 },
-                    { q: "What is the first step in treating dirty river water so we can drink it?", options: ["Screening and filtering to remove large objects like twigs and dirt", "Boiling it", "Adding chlorine", "Freezing it"], ans: 0 },
-                    { q: "What happens to the mass of a puddle of water when it evaporates?", options: ["The mass stays exactly the same, it just moves into the air as a gas", "The mass disappears completely", "The mass gets heavier", "The mass halves"], ans: 0 },
-                    { q: "Which arrangement best describes a liquid?", options: ["Particles are touching but randomly arranged and can slide around", "Particles are far apart and move quickly", "Particles are in neat rows and vibrate", "Particles are locked in a cage"], ans: 0 },
-                    { q: "Why does a mirror fog up when you take a hot shower?", options: ["Hot water vapour in the air hits the cold mirror and condenses into liquid drops", "The mirror absorbs the heat", "The water evaporates off the mirror", "The hot water splashes onto the mirror"], ans: 0 },
-                    { q: "What is the difference between boiling and evaporation?", options: ["Evaporation happens at the surface at any temperature; boiling happens throughout the liquid at a specific temperature", "They are exactly the same thing", "Boiling is only for water, evaporation is for juice", "Evaporation is much faster than boiling"], ans: 0 },
-                    { q: "When a liquid freezes to become a solid, what happens to the energy of the particles?", options: ["They lose energy and slow down until they are fixed in place", "They gain energy and move faster", "Their energy stays the same", "They explode"], ans: 0 },
-                    { q: "Which of these would you use to put out an electrical fire?", options: ["A Carbon Dioxide (CO2) extinguisher, because it removes oxygen without conducting electricity", "A bucket of water", "A wet towel", "Blowing on it"], ans: 0 },
+                    { q: "Which state of matter cannot be squashed (compressed) and keeps its own shape?", options: ["Solid", "Gas", "Liquid", "Vapour"], ans: 0 },
+                    { q: "What happens to the particles in an ice cube when it melts?", options: ["They gain heat energy and break away from their neat rows to slide past each other", "They lose heat energy and lock tightly into a regular pattern without moving", "They gain energy and spread far apart to fill the entire container quickly", "They expand in size until they push against the edges of the beaker"], ans: 0 },
+                    { q: "Why is it easy to squash a balloon filled with gas?", options: ["Because there are large empty spaces between the gas particles", "Because gas particles are very soft and can be squeezed flat", "Because gas particles shrink in size whenever you press them", "Because gas particles have zero mass and weigh nothing at all"], ans: 0 },
+                    { q: "Which piece of equipment is essential for filtration?", options: ["Filter paper and a funnel", "A thermometer and a clamp", "A Bunsen burner and tripod", "A magnet and a petri dish"], ans: 0 },
+                    { q: "If you have a mixture of sand and salty water, how do you get the sand out?", options: ["Pour it through filter paper so the sand gets trapped and salty water passes through", "Heat it gently over a flame until all of the sand evaporates into the air", "Stir it rapidly with a glass rod until the sand dissolves into the water", "Cool it down in a freezer so the sand floats straight to the top"], ans: 0 },
+                    { q: "After filtering, how can you get the pure water back from the salty water?", options: ["Use distillation: boil the water into steam, then cool it so it condenses back to liquid", "Use chromatography: place a spot on paper and let the water carry the salt upwards", "Use filtration again: pour the liquid through three layers of folded filter paper", "Use freezing: chill the beaker until the pure salt turns into solid crystals"], ans: 0 },
+                    { q: "In chromatography, why do different colours in ink separate?", options: ["Because some dyes dissolve better and travel faster up the paper than others", "Because the heavier colours sink to the bottom while lighter ones float up", "Because the heat from the room evaporates each colour at a different time", "Because the ink reacts with oxygen in the air to form brand new colours"], ans: 0 },
+                    { q: "When you stir sugar into tea, the sugar is the...", options: ["Solute", "Solvent", "Solution", "Filtrate"], ans: 0 },
+                    { q: "Which of the following is an example of an insoluble substance?", options: ["Sand in water", "Salt in water", "Sugar in tea", "Coffee in water"], ans: 0 },
+                    { q: "What are the three sides of the Fire Triangle?", options: ["Heat, Oxygen, and Fuel", "Wood, Matches, and Air", "Water, Earth, and Smoke", "Carbon, Nitrogen, and Ash"], ans: 0 },
+                    { q: "How does a fire blanket put out a chip pan fire?", options: ["It cuts off the oxygen supply by smothering the flames completely", "It cools the burning oil down below its freezing point instantly", "It absorbs all of the liquid fuel out of the pan like a sponge", "It blows a strong current of cold air across the top of the pan"], ans: 0 },
+                    { q: "Why do we add chlorine to drinking water at a water treatment plant?", options: ["To kill dangerous bacteria and harmful microorganisms", "To dissolve large pieces of mud, twigs, and gravel", "To neutralise acids and make the water taste sweet", "To turn the water clear by removing floating leaves"], ans: 0 },
+                    { q: "What is the first step in treating dirty river water so we can drink it?", options: ["Screening and filtering to remove large objects like twigs and grit", "Boiling the entire reservoir so that all the water turns into steam", "Adding chlorine gas to kill any microscopic bacteria in the river", "Distilling the water through long glass cooling tubes in a factory"], ans: 0 },
+                    { q: "What happens to the mass of a puddle of water when it evaporates?", options: ["The mass stays the same because the particles just move into the air as a gas", "The mass drops to zero because the water particles are completely destroyed", "The mass increases because the water absorbs heat energy from the sunlight", "The mass halves because gas particles weigh much less than liquid particles"], ans: 0 },
+                    { q: "Which arrangement best describes a liquid?", options: ["Particles are touching but randomly arranged and can slide around", "Particles are far apart in empty space and move very quickly", "Particles are packed in neat rows and only vibrate on the spot", "Particles are joined in rigid chains that cannot change shape"], ans: 0 },
+                    { q: "Why does a mirror fog up when you take a hot shower?", options: ["Hot water vapour in the air hits the cold mirror and condenses into liquid drops", "The warm glass absorbs heat from the room and begins to melt on the surface", "Liquid water on the mirror gains energy and evaporates into invisible steam", "Tiny droplets of soapy water bounce off the floor and stick to the glass"], ans: 0 },
+                    { q: "What is the difference between boiling and evaporation?", options: ["Evaporation happens at the surface at any temperature; boiling happens throughout at a set temperature", "Evaporation only happens when water is heated to 100°C; boiling happens slowly at room temperature", "Evaporation turns a liquid directly into a solid; boiling turns a solid directly into a gas", "Evaporation requires a Bunsen burner to start; boiling happens naturally in cold puddles"], ans: 0 },
+                    { q: "When a liquid freezes to become a solid, what happens to the energy of the particles?", options: ["They lose energy and slow down until they are fixed in place", "They gain energy and move faster until they break free completely", "They keep the exact same energy but shrink to half their size", "They transfer energy to the air and start flying in all directions"], ans: 0 },
+                    { q: "Which of these would you use to put out an electrical fire?", options: ["A carbon dioxide extinguisher, because it removes oxygen without conducting electricity", "A bucket of cold tap water, because it cools the wires down below room temperature", "A wet cotton towel, because the moisture stops the sparks from spreading further", "A foam extinguisher, because the soapy liquid washes away the electrical current"], ans: 0 },
                     { q: "What is the boiling point of pure water?", options: ["100°C", "0°C", "50°C", "212°C"], ans: 0 }
                 ],
                 long: [
                     { q: "Describe how to separate a mixture of sand and salty water to get pure, dry sand and pure water. (3 marks)", model: "1. Pour the mixture through filter paper in a funnel. The sand gets trapped (filtration).\n2. Heat the salty water that passes through until the water boils into steam.\n3. Cool the steam down using a condenser so it turns back into pure liquid water (distillation).", maxMarks: 3 },
                     { q: "Explain how chromatography separates the different colours in black ink. (3 marks)", model: "1. Draw a pencil line on chromatography paper and put a dot of ink on it.\n2. Place the bottom of the paper in a solvent (like water).\n3. As the water moves up the paper, it carries the different coloured dyes at different speeds, separating them.", maxMarks: 3 },
                     { q: "Name the three parts of the fire triangle and explain how a fire blanket puts out a fire. (3 marks)", model: "1. The three parts are Heat, Oxygen, and Fuel.\n2. A fire blanket covers the fire completely.\n3. This stops oxygen from getting to the fire, removing one side of the triangle so the fire goes out.", maxMarks: 3 }
-        ]
-    },
-    u2: { 
-        id: 'u2', title: "Forces & Space", icon: "ph-rocket-launch", emoji: "🪐", type: "standard",
-        match: [
-            {q:"Force", a:"A push, pull, or twist that can change the speed or direction of an object."},
-            {q:"Newton (N)", a:"The unit we use to measure forces."},
-            {q:"Friction", a:"A force that slows things down when two surfaces rub together."},
-            {q:"Air Resistance", a:"A type of friction caused by air particles hitting a moving object."},
-            {q:"Gravity", a:"A force that pulls objects downwards towards the centre of the Earth."},
-            {q:"Resultant Force", a:"The overall, single force acting on an object when you add or subtract the individual forces."},
-            {q:"Streamlined", a:"A smooth shape (like a rocket or a fish) designed to reduce air or water resistance."},
-            {q:"Solar System", a:"The Sun and the 8 planets that orbit around it."},
-            {q:"Jupiter", a:"The largest planet in our solar system."},
-            {q:"Orbit", a:"The path a planet or moon takes as it travels around a star or planet."},
-            {q:"Day and Night", a:"Caused by the Earth spinning on its axis once every 24 hours."},
-            {q:"Year", a:"Caused by the Earth completing one full orbit around the Sun every 365 days."},
-            {q:"Seasons", a:"Caused by the Earth being tilted on its axis as it orbits the Sun."},
-            {q:"Light Year", a:"The incredible distance that light can travel in one whole year."},
-            {q:"Speed", a:"How fast something moves. Calculated by dividing Distance by Time."},
-            {q:"Balanced Forces", a:"When forces are equal and opposite, so the object stays still or keeps the same steady speed."}
-        ],
-        mcq: [
-            { q: "What do we use to measure the size of a force?", options: ["A Newton meter", "A thermometer", "A ruler", "A weighing scale"], ans: 0 },
-            { q: "If a car is being pushed forward with 10 N and friction pushes back with 4 N, what is the resultant force?", options: ["6 N forwards", "14 N forwards", "6 N backwards", "0 N"], ans: 0 },
-            { q: "What happens to an object if the forces acting on it are perfectly balanced?", options: ["It will stay still, or keep moving at the exact same steady speed", "It will speed up", "It will slow down and stop", "It will explode"], ans: 0 },
-            { q: "Which of these forces is a 'non-contact' force (it works without touching)?", options: ["Gravity", "Friction", "Air resistance", "Water resistance"], ans: 0 },
-            { q: "Why do we have day and night on Earth?", options: ["Because the Earth rotates (spins) on its axis, so half faces the sun and half faces away", "Because the Sun goes behind the moon", "Because the Earth goes around the Sun", "Because clouds block the sun"], ans: 0 },
-            { q: "What causes the four seasons (Summer, Autumn, Winter, Spring)?", options: ["The Earth is tilted on its axis; sometimes we are tilted towards the sun, sometimes away", "The Earth gets closer to the Sun in the summer", "The Sun turns down its heat in the winter", "The moon gets in the way of the light"], ans: 0 },
-            { q: "What is the correct order of the first four planets from the Sun?", options: ["Mercury, Venus, Earth, Mars", "Venus, Earth, Mars, Jupiter", "Earth, Mars, Venus, Mercury", "Mars, Jupiter, Saturn, Uranus"], ans: 0 },
-            { q: "How long does it take for the Earth to orbit the Sun exactly once?", options: ["365 and a quarter days (1 Year)", "24 hours (1 Day)", "28 days (1 Month)", "10 years"], ans: 0 },
-            { q: "Why do rockets and sports cars have a smooth, pointy shape?", options: ["To make them streamlined, which reduces air resistance so they can go faster", "To make them heavier", "To increase friction", "Because it looks nice"], ans: 0 },
-            { q: "What is a 'Light Year'?", options: ["A measure of very long DISTANCE in space (how far light travels in a year)", "A measure of TIME (how long it takes light to reach us)", "A year with a lot of sunshine", "The speed of light"], ans: 0 },
-            { q: "If an astronaut drops a hammer on the moon, why does it fall slower than on Earth?", options: ["Because the Moon is smaller than Earth, so its gravity is weaker", "Because there is more air resistance on the moon", "Because the hammer loses mass", "Because space has zero gravity everywhere"], ans: 0 },
-            { q: "What force slows down a bicycle when you squeeze the brakes?", options: ["Friction between the brake pads and the wheel", "Gravity pulling the bike down", "Air resistance on your body", "Magnetism"], ans: 0 },
-            { q: "Which planet is famous for having large, visible rings made of ice and rock?", options: ["Saturn", "Jupiter", "Mars", "Neptune"], ans: 0 },
-            { q: "How do you calculate the speed of an object?", options: ["Distance divided by Time", "Time divided by Distance", "Distance multiplied by Time", "Force divided by Mass"], ans: 0 },
-            { q: "If the Earth was not tilted on its axis, what would happen?", options: ["We would not have different seasons; the weather would stay mostly the same all year", "We would have no gravity", "We would have no day and night", "The Earth would float away"], ans: 0 },
-            { q: "What is the name of our galaxy?", options: ["The Milky Way", "The Solar System", "Andromeda", "The Universe"], ans: 0 },
-            { q: "When a skydiver opens their parachute, what happens?", options: ["Air resistance increases massively, slowing them down safely", "Gravity turns off", "Gravity gets stronger", "Friction with the clouds stops them"], ans: 0 },
-            { q: "What provides the huge upward force (thrust) for a rocket to launch into space?", options: ["Burning fuel which shoots hot gases downwards out of the engine", "Giant springs on the launch pad", "Wind blowing upwards", "Magnets repelling the Earth"], ans: 0 },
-            { q: "Which of these planets is a 'Gas Giant'?", options: ["Jupiter", "Earth", "Mars", "Mercury"], ans: 0 },
-            { q: "What happens to your mass (how much 'stuff' you are made of) if you go to Mars?", options: ["It stays exactly the same; only your weight (the pull of gravity) changes", "Your mass decreases", "Your mass increases", "You become weightless"] }
-        ],
-        long: [
-            { q: "Explain why we have day and night on Earth. (3 marks)", model: "1. The Earth spins (rotates) on its own axis.\n2. It takes 24 hours to complete one full spin.\n3. The side of the Earth facing the Sun experiences day, and the side facing away in the shadow experiences night.", maxMarks: 3 },
-            { q: "Explain why it is colder in the winter than in the summer in the UK. (3 marks)", model: "1. The Earth's axis is tilted.\n2. In winter, the UK (Northern Hemisphere) is tilted away from the Sun.\n3. This means the Sun's rays are less direct and the days are shorter, so we get less heat.", maxMarks: 3 },
-            { q: "Describe how you would design a rocket to make it travel as fast as possible through the air. (3 marks)", model: "1. Give it a smooth, pointy shape to make it streamlined.\n2. This reduces air resistance (friction with the air) slowing it down.\n3. Give it a very powerful engine to create a large upward thrust force.", maxMarks: 3 }
-        ]
-    },
-    maths: {
-        id: 'maths', title: 'Working Scientifically', icon: 'ph-calculator', emoji: '🧮', type: 'maths',
-        questions: [
-            { q: 'A runner travels 100 metres in 10 seconds. Calculate their speed in m/s.', a: '10', hint: 'Speed = Distance ÷ Time', working: '100 ÷ 10 = 10 m/s' },
-            { q: 'A car travels at 20 m/s for 30 seconds. How far does it travel in metres?', a: '600', hint: 'Distance = Speed × Time', working: '20 × 30 = 600 m' },
-            { q: 'A box is pushed to the right with 50 N and to the left with 20 N. What is the resultant force?', a: '30', hint: 'Subtract the smaller force from the bigger force.', working: '50 - 20 = 30 N' },
-            { q: 'A metal block has a mass of 120 g and a volume of 30 cm³. Calculate its density in g/cm³.', a: '4', hint: 'Density = Mass ÷ Volume', working: '120 ÷ 30 = 4 g/cm³' },
-            { q: 'In an experiment, 3 readings were taken: 12, 15, and 18. Calculate the mean (average).', a: '15', hint: 'Add them all up, then divide by how many there are.', working: '(12 + 15 + 18) = 45\n45 ÷ 3 = 15' },
-            { q: 'A rocket engine provides an upward thrust of 500 N. The rocket has a weight of 300 N pulling down. What is the overall upward force?', a: '200', hint: 'Subtract the downward force from the upward force.', working: '500 - 300 = 200 N (Upwards)' },
-            { q: 'Convert 4.5 kilometres into metres.', a: '4500', hint: '1 km = 1000 m. Multiply by 1000.', working: '4.5 × 1000 = 4500 m' },
-            { q: 'A student measures 250 millilitres (ml) of water. How many litres (L) is this?', a: '0.25', hint: '1 Litre = 1000 ml. Divide by 1000.', working: '250 ÷ 1000 = 0.25 L' },
-            { q: 'A train travels 150 km in 2 hours. What is its average speed in km/h?', a: '75', hint: 'Speed = Distance ÷ Time', working: '150 ÷ 2 = 75 km/h' },
-            { q: 'A block of wood is 2cm high, 3cm wide and 4cm long. What is its volume in cm³?', a: '24', hint: 'Volume = length × width × height', working: '2 × 3 × 4 = 24 cm³' },
-            { q: 'Four students measure the boiling point of water: 100°C, 99°C, 101°C, and 40°C. The 40°C is an error. Calculate the mean of the good results.', a: '100', hint: 'Ignore the bad result (40). Find the mean of the other three.', working: '(100 + 99 + 101) = 300\n300 ÷ 3 = 100°C' },
-            { q: 'A cyclist travels 12 km in 1 hour. How far will they travel in 3 hours at the same speed?', a: '36', hint: 'Multiply the distance for 1 hour by 3.', working: '12 × 3 = 36 km' },
-            { q: 'If Earth is 150 million km from the Sun, and Mars is 225 million km from the Sun, how far apart are they when they line up?', a: '75', hint: 'Subtract the Earth distance from the Mars distance.', working: '225 - 150 = 75 million km' },
-            { q: 'A stone has a mass of 50g. When dropped in a measuring cylinder, the water level goes up by 10 cm³. What is the density?', a: '5', hint: 'Density = Mass ÷ Volume', working: '50 ÷ 10 = 5 g/cm³' },
-            { q: 'A parachute has an upward air resistance of 800 N. The skydiver weighs 800 N. What is the resultant force?', a: '0', hint: 'Subtract the forces. They are the same!', working: '800 - 800 = 0 N (Forces are balanced)' }
-        ]
-    }
-};
+                ]
+            },
+            u2: { 
+                id: 'u2', title: "Forces & Space", icon: "ph-rocket-launch", emoji: "🪐", type: "standard",
+                match: [
+                    {q:"Force", a:"A push, pull, or twist that can change the speed or direction of an object."},
+                    {q:"Newton (N)", a:"The unit we use to measure forces."},
+                    {q:"Friction", a:"A force that slows things down when two surfaces rub together."},
+                    {q:"Air Resistance", a:"A type of friction caused by air particles hitting a moving object."},
+                    {q:"Gravity", a:"A force that pulls objects downwards towards the centre of the Earth."},
+                    {q:"Resultant Force", a:"The overall, single force acting on an object when you add or subtract the individual forces."},
+                    {q:"Streamlined", a:"A smooth shape (like a rocket or a fish) designed to reduce air or water resistance."},
+                    {q:"Solar System", a:"The Sun and the 8 planets that orbit around it."},
+                    {q:"Jupiter", a:"The largest planet in our solar system."},
+                    {q:"Orbit", a:"The path a planet or moon takes as it travels around a star or planet."},
+                    {q:"Day and Night", a:"Caused by the Earth spinning on its axis once every 24 hours."},
+                    {q:"Year", a:"Caused by the Earth completing one full orbit around the Sun every 365 days."},
+                    {q:"Seasons", a:"Caused by the Earth being tilted on its axis as it orbits the Sun."},
+                    {q:"Light Year", a:"The incredible distance that light can travel in one whole year."},
+                    {q:"Speed", a:"How fast something moves. Calculated by dividing Distance by Time."},
+                    {q:"Balanced Forces", a:"When forces are equal and opposite, so the object stays still or keeps the same steady speed."}
+                ],
+                mcq: [
+                    { q: "What do we use to measure the size of a force?", options: ["A Newton meter", "A thermometer", "A measuring tape", "A balance scale"], ans: 0 },
+                    { q: "If a car is being pushed forward with 10 N and friction pushes back with 4 N, what is the resultant force?", options: ["6 N forwards", "14 N forwards", "6 N backwards", "14 N backwards"], ans: 0 },
+                    { q: "What happens to an object if the forces acting on it are perfectly balanced?", options: ["It will stay still, or keep moving at the same steady speed", "It will accelerate faster and faster in the forward direction", "It will immediately slow down and come to a complete stop", "It will change direction and begin moving in a tight circle"], ans: 0 },
+                    { q: "Which of these forces is a 'non-contact' force (it works without touching)?", options: ["Gravity", "Friction", "Air resistance", "Water resistance"], ans: 0 },
+                    { q: "Why do we have day and night on Earth?", options: ["Because the Earth spins on its axis so one half faces the Sun and the other faces away", "Because the Sun orbits around the Earth once every twenty-four hours", "Because the Moon moves in front of the Sun and blocks its light every evening", "Because thick clouds gather over the sky and block out the sunlight at night"], ans: 0 },
+                    { q: "What causes the four seasons (Summer, Autumn, Winter, Spring)?", options: ["The Earth is tilted on its axis as it orbits around the Sun", "The Earth moves much closer to the Sun during the summer months", "The Sun burns hotter in July and cools down during January", "The Moon pulls the Earth away from the Sun once every six months"], ans: 0 },
+                    { q: "What is the correct order of the first four planets from the Sun?", options: ["Mercury, Venus, Earth, Mars", "Venus, Earth, Mars, Jupiter", "Earth, Mars, Venus, Mercury", "Mercury, Earth, Venus, Mars"], ans: 0 },
+                    { q: "How long does it take for the Earth to orbit the Sun exactly once?", options: ["365 and a quarter days (1 Year)", "24 hours and 15 minutes (1 Day)", "28 and a half days (1 Month)", "100 earth years (1 Century)"], ans: 0 },
+                    { q: "Why do rockets and sports cars have a smooth, pointy shape?", options: ["To make them streamlined, reducing air resistance so they go faster", "To increase their total mass, giving them more gravity on the road", "To increase friction with the air, helping them grip the ground better", "To trap air particles inside the engine, making the fuel burn hotter"], ans: 0 },
+                    { q: "What is a 'Light Year'?", options: ["The distance that light travels through space in one whole year", "The time it takes for sunlight to travel from the Sun to Earth", "A year on another planet where the days are much brighter", "The top speed that a space rocket can reach in a vacuum"], ans: 0 },
+                    { q: "If an astronaut drops a hammer on the moon, why does it fall slower than on Earth?", options: ["Because the Moon has less mass than Earth, so its gravity is weaker", "Because the Moon has a much thicker atmosphere causing air resistance", "Because objects lose half of their mass when they travel into space", "Because there is no gravity at all anywhere outside of the Earth"], ans: 0 },
+                    { q: "What force slows down a bicycle when you squeeze the brakes?", options: ["Friction between the brake pads and the wheel", "Gravity pulling the bicycle frame downwards", "Air resistance pushing against the handlebars", "Magnetism attracting the metal wheel rim"], ans: 0 },
+                    { q: "Which planet is famous for having large, visible rings made of ice and rock?", options: ["Saturn", "Jupiter", "Mars", "Neptune"], ans: 0 },
+                    { q: "How do you calculate the speed of an object?", options: ["Distance divided by Time", "Time divided by Distance", "Distance multiplied by Time", "Force divided by Mass"], ans: 0 },
+                    { q: "If the Earth was not tilted on its axis, what would happen?", options: ["We would not have different seasons and the climate would stay similar all year", "We would lose all of our gravity and everything would float into space", "We would no longer experience day and night anywhere on the planet", "The Earth would stop orbiting the Sun and drift out of the solar system"], ans: 0 },
+                    { q: "What is the name of our galaxy?", options: ["The Milky Way", "The Solar System", "Andromeda", "Orion's Belt"], ans: 0 },
+                    { q: "When a skydiver opens their parachute, what happens?", options: ["Air resistance increases greatly, slowing their fall safely", "Gravity switches off completely, letting them float upwards", "Gravity becomes much stronger, pulling them down faster", "Upthrust from the clouds pushes them back toward the plane"], ans: 0 },
+                    { q: "What provides the huge upward force (thrust) for a rocket to launch into space?", options: ["Burning fuel which shoots hot gases downwards out of the engine", "Giant compressed springs built underneath the concrete launch pad", "Strong upward winds blowing from the surface of the Earth", "Powerful magnets repelling the metal body of the spacecraft"], ans: 0 },
+                    { q: "Which of these planets is a 'Gas Giant'?", options: ["Jupiter", "Earth", "Mars", "Mercury"], ans: 0 },
+                    { q: "What happens to your mass (how much 'stuff' you are made of) if you go to Mars?", options: ["It stays the same; only your weight changes due to weaker gravity", "It decreases by half because Mars is much smaller than the Earth", "It increases rapidly because the atmosphere on Mars is heavier", "It drops to zero because astronauts are weightless in deep space"], ans: 0 }
+                ],
+                long: [
+                    { q: "Explain why we have day and night on Earth. (3 marks)", model: "1. The Earth spins (rotates) on its own axis.\n2. It takes 24 hours to complete one full spin.\n3. The side of the Earth facing the Sun experiences day, and the side facing away in the shadow experiences night.", maxMarks: 3 },
+                    { q: "Explain why it is colder in the winter than in the summer in the UK. (3 marks)", model: "1. The Earth's axis is tilted.\n2. In winter, the UK (Northern Hemisphere) is tilted away from the Sun.\n3. This means the Sun's rays are less direct and the days are shorter, so we get less heat.", maxMarks: 3 },
+                    { q: "Describe how you would design a rocket to make it travel as fast as possible through the air. (3 marks)", model: "1. Give it a smooth, pointy shape to make it streamlined.\n2. This reduces air resistance (friction with the air) slowing it down.\n3. Give it a very powerful engine to create a large upward thrust force.", maxMarks: 3 }
+                ]
+            },
+            maths: {
+                id: 'maths', title: 'Working Scientifically', icon: 'ph-calculator', emoji: '🧮', type: 'maths',
+                questions: [
+                    { q: 'A runner travels 100 metres in 10 seconds. Calculate their speed in m/s.', a: '10', hint: 'Speed = Distance ÷ Time', working: '100 ÷ 10 = 10 m/s' },
+                    { q: 'A car travels at 20 m/s for 30 seconds. How far does it travel in metres?', a: '600', hint: 'Distance = Speed × Time', working: '20 × 30 = 600 m' },
+                    { q: 'A box is pushed to the right with 50 N and to the left with 20 N. What is the resultant force?', a: '30', hint: 'Subtract the smaller force from the bigger force.', working: '50 - 20 = 30 N' },
+                    { q: 'A metal block has a mass of 120 g and a volume of 30 cm³. Calculate its density in g/cm³.', a: '4', hint: 'Density = Mass ÷ Volume', working: '120 ÷ 30 = 4 g/cm³' },
+                    { q: 'In an experiment, 3 readings were taken: 12, 15, and 18. Calculate the mean (average).', a: '15', hint: 'Add them all up, then divide by how many there are.', working: '(12 + 15 + 18) = 45\n45 ÷ 3 = 15' },
+                    { q: 'A rocket engine provides an upward thrust of 500 N. The rocket has a weight of 300 N pulling down. What is the overall upward force?', a: '200', hint: 'Subtract the downward force from the upward force.', working: '500 - 300 = 200 N (Upwards)' },
+                    { q: 'Convert 4.5 kilometres into metres.', a: '4500', hint: '1 km = 1000 m. Multiply by 1000.', working: '4.5 × 1000 = 4500 m' },
+                    { q: 'A student measures 250 millilitres (ml) of water. How many litres (L) is this?', a: '0.25', hint: '1 Litre = 1000 ml. Divide by 1000.', working: '250 ÷ 1000 = 0.25 L' },
+                    { q: 'A train travels 150 km in 2 hours. What is its average speed in km/h?', a: '75', hint: 'Speed = Distance ÷ Time', working: '150 ÷ 2 = 75 km/h' },
+                    { q: 'A block of wood is 2cm high, 3cm wide and 4cm long. What is its volume in cm³?', a: '24', hint: 'Volume = length × width × height', working: '2 × 3 × 4 = 24 cm³' },
+                    { q: 'Four students measure the boiling point of water: 100°C, 99°C, 101°C, and 40°C. The 40°C is an error. Calculate the mean of the good results.', a: '100', hint: 'Ignore the bad result (40). Find the mean of the other three.', working: '(100 + 99 + 101) = 300\n300 ÷ 3 = 100°C' },
+                    { q: 'A cyclist travels 12 km in 1 hour. How far will they travel in 3 hours at the same speed?', a: '36', hint: 'Multiply the distance for 1 hour by 3.', working: '12 × 3 = 36 km' },
+                    { q: 'If Earth is 150 million km from the Sun, and Mars is 225 million km from the Sun, how far apart are they when they line up?', a: '75', hint: 'Subtract the Earth distance from the Mars distance.', working: '225 - 150 = 75 million km' },
+                    { q: 'A stone has a mass of 50g. When dropped in a measuring cylinder, the water level goes up by 10 cm³. What is the density?', a: '5', hint: 'Density = Mass ÷ Volume', working: '50 ÷ 10 = 5 g/cm³' },
+                    { q: 'A parachute has an upward air resistance of 800 N. The skydiver weighs 800 N. What is the resultant force?', a: '0', hint: 'Subtract the forces. They are the same!', working: '800 - 800 = 0 N (Forces are balanced)' }
+                ]
+            }
+        };
 
         const TAB_ORDER = ['u1', 'u2', 'maths'];
 
@@ -589,7 +596,7 @@
                     state[id].matchSelQ = null;
                     state[id].matchSelA = null;
                 } else if (unitData.type === 'maths') {
-                    state[id] = { correct: 0, answers: {}, submitted: {} };
+                    state[id] = { correct: 0, answers: {}, submitted: {}, activeIdx: 0 };
                 }
             });
         }
@@ -637,10 +644,9 @@
             document.getElementById('splash-screen').classList.add('hidden');
             document.getElementById('app-header').classList.remove('hidden');
             document.getElementById('main-content').classList.remove('hidden');
-            document.getElementById('main-body').classList.remove('overflow-hidden');
             
             document.getElementById('streak-emoji').innerText = data.emoji;
-            document.getElementById('header-icon').className = `ph-bold ${data.icon} text-2xl text-violet-600`;
+            document.getElementById('header-icon').className = `ph-bold ${data.icon} text-xl text-violet-600`;
             document.getElementById('header-unit-title').innerText = data.title;
             
             renderActivityNav();
@@ -653,7 +659,6 @@
             document.getElementById('splash-screen').classList.remove('hidden');
             document.getElementById('app-header').classList.add('hidden');
             document.getElementById('main-content').classList.add('hidden');
-            document.getElementById('main-body').classList.add('overflow-hidden');
         }
 
         function renderActivityNav() {
@@ -679,9 +684,9 @@
             tabs.forEach(t => {
                 const btn = document.createElement('button');
                 btn.id = `nav-btn-${t.id}`;
-                btn.className = `tab-btn flex flex-col items-center justify-center px-4 py-3 min-w-[120px] border-b-4 text-sm font-semibold transition-colors border-transparent text-slate-500 hover:bg-slate-50`;
+                btn.className = `tab-btn flex flex-row items-center justify-center gap-2 px-4 py-2 min-w-[120px] border-b-4 text-xs sm:text-sm font-semibold transition-colors border-transparent text-slate-500 hover:bg-slate-50`;
                 btn.onclick = () => switchActivity(t.id);
-                btn.innerHTML = `<i class="ph-duotone ${t.icon} text-2xl mb-1"></i> <span class="whitespace-nowrap">${t.label}</span>`;
+                btn.innerHTML = `<i class="ph-duotone ${t.icon} text-lg"></i> <span class="whitespace-nowrap">${t.label}</span>`;
                 nav.appendChild(btn);
             });
         }
@@ -760,7 +765,7 @@
                 if(s.matchCompleted.includes(item.i)) return;
                 const isSel = s.matchSelQ === item.i;
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left p-4 rounded-xl shadow-sm border-2 transition-all font-semibold ${isSel ? 'bg-violet-50 border-violet-500 scale-[1.02] text-violet-700' : 'bg-white border-slate-200 hover:border-violet-300 text-slate-700 hover:shadow-md'}`;
+                btn.className = `w-full flex-1 flex items-center text-left px-3 py-1.5 rounded-xl shadow-sm border-2 transition-all font-semibold text-xs sm:text-sm leading-tight ${isSel ? 'bg-violet-50 border-violet-500 scale-[1.01] text-violet-700' : 'bg-white border-slate-200 hover:border-violet-300 text-slate-700 hover:shadow-md'}`;
                 btn.innerText = item.t;
                 btn.onclick = () => handleMatchSelect('q', item.i, btn);
                 btn.id = `match-q-${item.i}`;
@@ -771,7 +776,7 @@
                 if(s.matchCompleted.includes(item.i)) return;
                 const isSel = s.matchSelA === item.i;
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left p-4 rounded-xl shadow-sm border-2 transition-all font-medium ${isSel ? 'bg-blue-50 border-blue-500 scale-[1.02] text-blue-700' : 'bg-white border-slate-200 hover:border-blue-300 text-slate-600 hover:shadow-md'}`;
+                btn.className = `w-full flex-1 flex items-center text-left px-3 py-1.5 rounded-xl shadow-sm border-2 transition-all font-medium text-xs leading-snug ${isSel ? 'bg-blue-50 border-blue-500 scale-[1.01] text-blue-700' : 'bg-white border-slate-200 hover:border-blue-300 text-slate-600 hover:shadow-md'}`;
                 btn.innerText = item.t;
                 btn.onclick = () => handleMatchSelect('a', item.i, btn);
                 btn.id = `match-a-${item.i}`;
@@ -855,7 +860,7 @@
             
             q.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = `w-full text-left p-4 rounded-xl border border-slate-600 transition-all font-medium text-lg bg-slate-700 hover:border-blue-400 hover:bg-slate-600 text-slate-200 shadow-sm`;
+                btn.className = `w-full text-left p-3 sm:p-3.5 rounded-xl border border-slate-600 transition-all font-medium text-sm sm:text-base leading-snug bg-slate-700 hover:border-blue-400 hover:bg-slate-600 text-slate-200 shadow-sm`;
                 btn.innerText = opt;
                 btn.onclick = () => handleMCQSelect(idx, btn);
                 optionsContainer.appendChild(btn);
@@ -869,13 +874,13 @@
             const allBtns = document.getElementById('mcq-options').children;
 
             for(let i=0; i<allBtns.length; i++) {
-                allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-slate-800 border-slate-700 text-slate-500 opacity-50 pointer-events-none";
+                allBtns[i].className = "w-full text-left p-3 sm:p-3.5 rounded-xl border font-medium text-sm sm:text-base leading-snug bg-slate-800 border-slate-700 text-slate-500 opacity-50 pointer-events-none";
                 if(i === selIdx) {
-                    if(isCorrect) allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-emerald-900/30 border-emerald-500 text-emerald-400 pointer-events-none shadow-sm";
-                    else allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg bg-red-900/30 border-red-500 text-red-400 pointer-events-none animate-shake shadow-sm";
+                    if(isCorrect) allBtns[i].className = "w-full text-left p-3 sm:p-3.5 rounded-xl border font-medium text-sm sm:text-base leading-snug bg-emerald-900/30 border-emerald-500 text-emerald-400 pointer-events-none shadow-sm";
+                    else allBtns[i].className = "w-full text-left p-3 sm:p-3.5 rounded-xl border font-medium text-sm sm:text-base leading-snug bg-red-900/30 border-red-500 text-red-400 pointer-events-none animate-shake shadow-sm";
                 }
                 if(i === q.ans && !isCorrect) {
-                     allBtns[i].className = "w-full text-left p-4 rounded-xl border font-medium text-lg border-emerald-500/50 bg-slate-800 text-slate-300 border-dashed pointer-events-none";
+                     allBtns[i].className = "w-full text-left p-3 sm:p-3.5 rounded-xl border font-medium text-sm sm:text-base leading-snug border-emerald-500/50 bg-slate-800 text-slate-300 border-dashed pointer-events-none";
                 }
             }
 
@@ -910,58 +915,60 @@
             const hasMark = s.longScores[index] !== undefined;
             
             const div = document.createElement('div');
-            div.className = "bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 mb-6 animate-fade-in";
+            div.className = "bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 animate-fade-in flex flex-col justify-between h-full max-h-full overflow-hidden";
             
             let html = `
-                <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
-                    <h4 class="font-bold text-slate-500 uppercase tracking-wider text-sm">Question ${index + 1} of ${data.long.length}</h4>
-                    <div class="flex gap-1">
-                        ${data.long.map((_, i) => `<div class="w-3 h-3 rounded-full ${i === index ? 'bg-amber-500 shadow-sm' : (s.longScores[i] !== undefined ? 'bg-emerald-400' : 'bg-slate-200')}"></div>`).join('')}
+                <div class="flex justify-between items-center mb-2.5 pb-2 border-b border-slate-100 shrink-0">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-wider text-xs">Question ${index + 1} of ${data.long.length}</h4>
+                    <div class="flex gap-1.5">
+                        ${data.long.map((_, i) => `<div class="w-2.5 h-2.5 rounded-full ${i === index ? 'bg-amber-500 shadow-sm' : (s.longScores[i] !== undefined ? 'bg-emerald-400' : 'bg-slate-200')}"></div>`).join('')}
                     </div>
                 </div>
-                <div class="mb-5">
-                    <h4 class="font-bold text-lg text-slate-800 leading-relaxed">${item.q}</h4>
+                <div class="mb-3 shrink-0">
+                    <h4 class="font-bold text-base sm:text-lg text-slate-800 leading-snug">${item.q}</h4>
                 </div>
             `;
 
             if (!hasMark) {
                 const savedText = s.longAnswersText[index] || '';
                 html += `
-                    <div class="relative mt-2">
-                        <textarea id="long-input-${index}" placeholder="Type or dictate your answer here..." class="w-full h-40 p-4 border-2 rounded-xl outline-none resize-none transition-colors border-slate-200 focus:border-amber-400 bg-slate-50 text-slate-700 text-base placeholder-slate-400">${savedText}</textarea>
-                        <button id="dictate-btn-${index}" onclick="toggleDictation(${index})" class="absolute bottom-4 right-4 p-3 rounded-full shadow-md transition-all bg-white text-slate-500 hover:text-amber-500 border border-slate-200" title="Dictate Answer">
-                            <i class="ph-fill ph-microphone text-xl"></i>
+                    <div class="relative flex-1 min-h-0 flex flex-col">
+                        <textarea id="long-input-${index}" placeholder="Type or dictate your answer here..." class="w-full flex-1 min-h-[120px] p-3.5 border-2 rounded-xl outline-none resize-none transition-colors border-slate-200 focus:border-amber-400 bg-slate-50 text-slate-700 text-sm sm:text-base placeholder-slate-400">${savedText}</textarea>
+                        <button id="dictate-btn-${index}" onclick="toggleDictation(${index})" class="absolute bottom-3 right-3 p-2.5 rounded-full shadow-md transition-all bg-white text-slate-500 hover:text-amber-500 border border-slate-200" title="Dictate Answer">
+                            <i class="ph-fill ph-microphone text-lg"></i>
                         </button>
                     </div>
-                    <button onclick="submitLong(${index})" class="mt-6 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                    <button onclick="submitLong(${index})" class="mt-3 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm sm:text-base shrink-0">
                         <i class="ph-bold ph-check-square-offset"></i> Submit & Reveal Mark Scheme
                     </button>
                 `;
             } else {
                 const userText = s.longAnswersText[index] || 'No answer provided.';
                 html += `
-                    <div class="bg-slate-50 p-5 rounded-xl mb-4 border border-slate-200">
-                        <div class="font-bold text-slate-500 mb-2 uppercase tracking-wider text-xs flex items-center gap-2">
-                            <i class="ph-fill ph-user text-lg"></i> Your Answer:
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 flex-1 min-h-0 overflow-hidden">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex flex-col justify-start overflow-y-auto">
+                            <div class="font-bold text-slate-500 mb-1 uppercase tracking-wider text-[11px] flex items-center gap-1.5 shrink-0">
+                                <i class="ph-fill ph-user text-sm"></i> Your Answer:
+                            </div>
+                            <div class="text-slate-700 whitespace-pre-line font-medium text-xs sm:text-sm leading-relaxed">${userText}</div>
                         </div>
-                        <div class="text-slate-700 whitespace-pre-line font-medium leading-relaxed">${userText}</div>
-                    </div>
 
-                    <div class="bg-blue-50 p-6 rounded-xl mb-6 border border-blue-200 shadow-inner">
-                        <div class="font-bold text-blue-700 mb-3 uppercase tracking-wider text-xs flex items-center gap-2">
-                            <i class="ph-fill ph-star text-lg"></i> Perfect Model Answer:
+                        <div class="bg-blue-50 p-3.5 rounded-xl border border-blue-200 shadow-inner flex flex-col justify-start overflow-y-auto">
+                            <div class="font-bold text-blue-700 mb-1 uppercase tracking-wider text-[11px] flex items-center gap-1.5 shrink-0">
+                                <i class="ph-fill ph-star text-sm"></i> Perfect Model Answer:
+                            </div>
+                            <div class="text-slate-700 whitespace-pre-line font-medium text-xs sm:text-sm leading-relaxed">${item.model}</div>
                         </div>
-                        <div class="text-slate-700 whitespace-pre-line font-medium leading-relaxed">${item.model}</div>
                     </div>
                     
-                    <div class="flex flex-col md:flex-row items-center justify-between bg-white p-5 rounded-xl border border-slate-200 shadow-sm mb-6">
-                        <div class="mb-4 md:mb-0 text-center md:text-left">
-                            <span class="font-bold text-slate-800 block text-lg">Assess Your Answer</span>
-                            <span class="text-sm text-slate-500 font-medium">Read the model above. How many marks did you achieve?</span>
+                    <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-3 rounded-xl border border-slate-200 shadow-sm mb-3 shrink-0 gap-2">
+                        <div class="text-center sm:text-left">
+                            <span class="font-bold text-slate-800 block text-sm">Assess Your Answer</span>
+                            <span class="text-xs text-slate-500 font-medium">How many marks did you achieve?</span>
                         </div>
                         <div class="flex gap-2 flex-wrap justify-center">
                             ${Array.from({length: item.maxMarks + 1}, (_, m) => `
-                                <button onclick="setLongScore(${index},${m})" class="w-12 h-12 rounded-xl font-bold text-lg transition-all shadow-sm ${s.longScores[index] === m ? 'bg-amber-500 text-white border-2 border-amber-600 scale-110 shadow-md' : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:text-amber-600'}">
+                                <button onclick="setLongScore(${index},${m})" class="w-10 h-10 rounded-xl font-bold text-base transition-all shadow-sm ${s.longScores[index] === m ? 'bg-amber-500 text-white border-2 border-amber-600 scale-105 shadow-md' : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:text-amber-600'}">
                                     ${m}
                                 </button>
                             `).join('')}
@@ -971,13 +978,13 @@
 
                 if (index < data.long.length - 1) {
                     html += `
-                        <button onclick="nextLongQuestion()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                        <button onclick="nextLongQuestion()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm sm:text-base shrink-0">
                             Next Question <i class="ph-bold ph-arrow-right"></i>
                         </button>
                     `;
                 } else {
                     html += `
-                        <button onclick="switchActivity('report')" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-lg">
+                        <button onclick="switchActivity('report')" class="w-full bg-violet-600 hover:bg-violet-700 text-white font-bold py-2.5 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm sm:text-base shrink-0">
                             <i class="ph-bold ph-chart-bar"></i> View Progress
                         </button>
                     `;
@@ -1027,50 +1034,103 @@
             const list = document.getElementById('maths-list');
             list.innerHTML = '';
             
-            document.getElementById('maths-score').nextSibling.textContent = ` / ${data.questions.length}`;
-            document.getElementById('maths-score').innerText = s.correct;
+            const index = s.activeIdx;
+            const item = data.questions[index];
+            const total = data.questions.length;
 
-            data.questions.forEach((item, index) => {
-                const div = document.createElement('div');
-                div.className = "bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-start md:items-center";
-                let html = `
-                    <div class="flex-1">
-                        <span class="font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded text-sm mr-2 border border-blue-200">Q${index + 1}</span>
-                        <span class="font-semibold text-slate-700">${item.q}</span>
-                        <div class="text-sm font-medium text-amber-600 bg-amber-50 border border-amber-200 p-2 rounded-lg mt-3 flex items-start gap-2">
-                            <i class="ph-bold ph-lightbulb mt-0.5"></i> <span>${item.hint}</span>
+            document.getElementById('maths-score').nextSibling.textContent = ` / ${total}`;
+            document.getElementById('maths-score').innerText = s.correct;
+            document.getElementById('maths-q-counter').innerText = `Question ${index + 1} of ${total}`;
+
+            const div = document.createElement('div');
+            div.className = "bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-200 flex flex-col justify-between h-full max-h-full animate-fade-in";
+            
+            let html = `
+                <div>
+                    <div class="flex flex-wrap gap-1 mb-3">
+                        ${data.questions.map((_, i) => `
+                            <button onclick="setMathsIndex(${i})" class="w-6 h-6 rounded-md text-[11px] font-bold transition-all ${i === index ? 'bg-blue-600 text-white shadow-sm scale-105' : (s.submitted[i] ? ((s.answers[i] || '').trim() === data.questions[i].a ? 'bg-emerald-100 text-emerald-700 border border-emerald-300' : 'bg-red-100 text-red-700 border border-red-300') : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-100')}">
+                                ${i + 1}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="mb-3">
+                        <span class="font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded text-xs mr-2 border border-blue-200">Q${index + 1}</span>
+                        <span class="font-semibold text-slate-800 text-base sm:text-lg leading-snug">${item.q}</span>
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-amber-700 bg-amber-50 border border-amber-200 p-2.5 rounded-lg flex items-center gap-2">
+                        <i class="ph-bold ph-lightbulb text-base shrink-0"></i> <span>${item.hint}</span>
+                    </div>
+                </div>
+            `;
+
+            if (!s.submitted[index]) {
+                html += `
+                    <div class="my-auto py-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <input type="number" step="any" id="maths-input-${index}" placeholder="Enter number..." oninput="state['${currentUnitId}'].answers[${index}] = this.value" onkeydown="if(event.key==='Enter') submitMaths(${index})" value="${s.answers[index] || ''}" class="w-full sm:w-48 p-3 border-2 rounded-xl text-center font-bold text-lg outline-none border-slate-300 focus:border-blue-500 bg-white transition-colors">
+                        <button onclick="submitMaths(${index})" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl shadow-sm transition-colors whitespace-nowrap">
+                            Check Answer
+                        </button>
+                    </div>
+                `;
+            } else {
+                const uAns = s.answers[index] || '';
+                const isCorrect = uAns.trim() === item.a;
+                html += `
+                    <div class="my-auto py-2 flex flex-col sm:flex-row items-center gap-4">
+                        <div class="flex items-center gap-2.5 shrink-0">
+                            <div class="w-32 p-2.5 border-2 rounded-xl text-center font-bold text-lg ${isCorrect ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-red-500 bg-red-50 text-red-700'}">
+                                ${uAns || '-'}
+                            </div>
+                            <i class="ph-fill ${isCorrect ? 'ph-check-circle text-emerald-500' : 'ph-x-circle text-red-500'} text-3xl shrink-0"></i>
+                        </div>
+                        <div class="flex-1 w-full text-xs sm:text-sm bg-white p-3 rounded-xl border border-slate-200 text-slate-600 font-medium whitespace-pre-line shadow-inner">
+                            <span class="font-bold text-blue-600 block mb-0.5">Correct Answer: ${item.a}</span>
+                            <span class="font-bold text-slate-700">Working: </span>${item.working}
                         </div>
                     </div>
                 `;
-                if (!s.submitted[index]) {
-                    html += `
-                        <div class="w-full md:w-auto shrink-0 flex flex-row items-center gap-2 mt-3 md:mt-0">
-                            <input type="number" step="any" id="maths-input-${index}" placeholder="Answer" oninput="state['${currentUnitId}'].answers[${index}] = this.value" value="${s.answers[index] || ''}" class="w-full md:w-32 p-3 border-2 rounded-lg text-center font-bold outline-none border-slate-300 focus:border-blue-500 bg-white transition-colors">
-                            <button onclick="submitMaths(${index})" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-5 rounded-lg shadow-sm transition-colors whitespace-nowrap">
-                                Check
-                            </button>
-                        </div>
-                    `;
-                } else {
-                    const uAns = s.answers[index] || '';
-                    const isCorrect = uAns.trim() === item.a;
-                    html += `
-                        <div class="w-full md:w-80 shrink-0 flex flex-col gap-2 mt-3 md:mt-0">
-                            <div class="flex items-center gap-2 w-full">
-                                <div class="w-full p-3 border-2 rounded-lg text-center font-bold ${isCorrect ? 'border-emerald-500 bg-emerald-50 text-emerald-700' : 'border-red-500 bg-red-50 text-red-700'}">
-                                    ${uAns || '-'}
-                                </div>
-                                <i class="ph-fill ${isCorrect ? 'ph-check-circle text-emerald-500' : 'ph-x-circle text-red-500'} text-3xl shrink-0"></i>
-                            </div>
-                            <div class="text-xs bg-white p-3 rounded border border-slate-200 text-slate-600 font-medium whitespace-pre-line shadow-inner">
-                                <span class="font-bold text-blue-600 block mb-1">Correct Answer: ${item.a}</span>
-                                <span class="font-bold text-slate-700 block mb-1">Working:</span>${item.working}
-                            </div>
-                        </div>
-                    `;
-                }
-                div.innerHTML = html; list.appendChild(div);
-            });
+            }
+
+            html += `
+                <div class="flex items-center justify-between pt-2.5 border-t border-slate-200 shrink-0">
+                    <button onclick="prevMathsQuestion()" ${index === 0 ? 'disabled' : ''} class="px-4 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 transition-colors ${index === 0 ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'}">
+                        <i class="ph-bold ph-arrow-left"></i> Previous
+                    </button>
+                    ${index < total - 1 ? `
+                        <button onclick="nextMathsQuestion()" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-1.5 shadow-sm transition-colors">
+                            Next Question <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    ` : `
+                        <button onclick="switchActivity('report')" class="px-5 py-2 rounded-xl font-bold text-xs sm:text-sm bg-violet-600 hover:bg-violet-700 text-white flex items-center gap-1.5 shadow-sm transition-colors">
+                            <i class="ph-bold ph-chart-bar"></i> View Progress
+                        </button>
+                    `}
+                </div>
+            `;
+
+            div.innerHTML = html;
+            list.appendChild(div);
+        }
+
+        function setMathsIndex(idx) {
+            state[currentUnitId].activeIdx = idx;
+            renderMaths();
+        }
+
+        function prevMathsQuestion() {
+            if (state[currentUnitId].activeIdx > 0) {
+                state[currentUnitId].activeIdx--;
+                renderMaths();
+            }
+        }
+
+        function nextMathsQuestion() {
+            const total = APP_DATA[currentUnitId].questions.length;
+            if (state[currentUnitId].activeIdx < total - 1) {
+                state[currentUnitId].activeIdx++;
+                renderMaths();
+            }
         }
 
         function submitMaths(idx) {
@@ -1231,7 +1291,9 @@
                 document.getElementById('sc-standard-stats').classList.remove('hidden');
                 document.getElementById('sc-maths-stats').classList.add('hidden');
                 document.getElementById('sc-match').innerText = s.matchCompleted.length;
+                document.getElementById('sc-total-match-display').innerText = `/ ${data.match.length}`;
                 document.getElementById('sc-mcq').innerText = s.mcqCorrect;
+                document.getElementById('sc-total-mcq').innerText = s.mcqTotal;
                 currentTotal += s.matchCompleted.length + s.mcqCorrect;
                 possibleTotal += data.match.length + s.mcqTotal;
                 let longCurrent = 0; let longMax = 0;
@@ -1270,7 +1332,12 @@
 
         function closeScorecard() { document.getElementById('scorecard-modal').classList.add('hidden'); document.getElementById('scorecard-modal').classList.remove('flex'); }
 
-        window.onload = () => { initState(); };
+        window.onload = () => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.getVoices();
+            }
+            initState();
+        };
     </script>
 </body>
 </html>
